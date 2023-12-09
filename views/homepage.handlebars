@@ -9,16 +9,31 @@
         &nbsp;Home Page&nbsp;       
     </h1>
 
-    <h2 class="flex items-center justify-center p-2 text-lg font-bold text-center md:text-2xl text-zinc-900" >
+    <h2 class="items-center justify-center p-2 text-lg font-bold text-center md:text-2xl text-zinc-900" >
         <span class="font-bold text-orange-400">
             <i class="fa-solid fa-computer fa-beat fa-xl"></i> &nbsp; 
         </span>
-        {{!-- <span class="text-[#722F37]">Brand Page </span> --}}
     </h2>
-
-    {{!-- <h3 class="flex items-center justify-center my-4 text-lg font-bold text-center md:text-2xl text-zinc-900">
-        &nbsp;Click to peruse your collection &nbsp; 
-    </h3> --}}
+    
+    <table class="w-1/2 mx-auto text-center table-auto text-yellow-400">
+        <thead>
+                <tr>
+                    <th><u>Logged in user_id:</u></th>
+                    <th><u>Logged in name:</u></th>
+                    <th><u>Logged in username:</u></th>
+                    <th><u>Logged in state:</u></th>
+                    
+                </tr>
+        </thead>
+        <tbody>
+                <tr>
+                    <td>{{user_id}} </td>
+                    <td>{{name}} </td>
+                    <td>{{username}} </td>
+                    <td>{{logged_in}} </td>                
+                </tr>
+        </tbody> 
+    </table>
 
     {{!-- <p> Chii Kawa!</p>
 
@@ -27,9 +42,9 @@
     <img src="https://pbs.twimg.com/profile_images/1571353371310804995/5EuNttEl_400x400.png" alt="Chii kawa image"></img> --}}
 
 
-    {{!----------}}
+    {{!-----------}}
     {{!-- Blogs --}}
-    {{!----------}}
+    {{!-----------}}
     <div class="mx-auto bg-sky-700 w-5/6">
 
         {{#each blogs as |blog|}}

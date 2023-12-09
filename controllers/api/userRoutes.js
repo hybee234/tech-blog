@@ -79,12 +79,15 @@ router.post('/login', async (req, res) => {
         // Save user info in the session
         req.session.save(() => {
         req.session.user_id = userData.user_id;
-        req.session.logged_in = true;
         req.session.name = userData.name;
         req.session.username = userData.username
+        req.session.logged_in = true;
+        
 
-        console.log (`\x1b[35m ${userData.user_id}\x1b[0m`)
-        console.log (`\x1b[35m ${userData.name}\x1b[0m`)
+        console.log (`\x1b[35m User ID: ${userData.user_id}\x1b[0m`)
+        console.log (`\x1b[35m Name: ${userData.name}\x1b[0m`)
+        console.log (`\x1b[35m Username: ${userData.username}\x1b[0m`)
+        console.log (`\x1b[35m Logged in: ${req.session.logged_in}\x1b[0m`)
 
         console.log(userData)
         console.log(req.session) //ACCESS SESSION DETAILS BY USING THIS VARIABLE
