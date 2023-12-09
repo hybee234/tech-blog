@@ -1,12 +1,11 @@
 <main class="bg-sky-700 align-center">
 
-{{req.session.username}}
 
     {{!-------------}}
     {{!-- Heading --}}
     {{!-------------}}
     <h1 class="flex items-center justify-center p-2 text-2xl font-bold text-center md:text-3xl text-orange-400">
-        &nbsp;Home Page&nbsp;       
+        &nbsp;{{blog.blog_title}}&nbsp;
     </h1>
 
     <h2 class="flex items-center justify-center p-2 text-lg font-bold text-center md:text-2xl text-zinc-900" >
@@ -17,7 +16,7 @@
     </h2>
 
     {{!-- <h3 class="flex items-center justify-center my-4 text-lg font-bold text-center md:text-2xl text-zinc-900">
-        &nbsp;Click to peruse your collection &nbsp; 
+        &nbsp;{{blog.comments.[0].comment_body}} &nbsp; 
     </h3> --}}
 
     {{!-- <p> Chii Kawa!</p>
@@ -27,37 +26,60 @@
     <img src="https://pbs.twimg.com/profile_images/1571353371310804995/5EuNttEl_400x400.png" alt="Chii kawa image"></img> --}}
 
 
-    {{!----------}}
-    {{!-- Blogs --}}
-    {{!----------}}
-    <div class="mx-auto bg-sky-700 w-5/6">
+    {{!--------------}}
+    {{!-- One Blog --}}
+    {{!--------------}}
+    <div class="mx-auto bg-sky-700 w-5/6">        
+        <div class="bg-sky-200 m-2 my-5 border-8 border-sky-300 rounded-2xl ">             
+                {{!-- Blog Title and author --}}
+                <div class=" flex bg-sky-300 p-2 ">
+                    <a href="/{{blog_id}}" class="w-3/5">
+                        <div class="text-2xl font-semibold hover:font-semibold hover:text-orange-600 duration-300 ease-in-out ">
+                            <p>{{blog.blog_title}}</p>   
+                            
+                        </div>
+                    </a>
+                    <div class="text-sm w-2/5 text-right">
+                        <p> Posted by {{blog.user.name}} On {{format_date blog.blog_date}}</p>                                                    
+                    </div>
+                </div>
+                {{!-- Partial underline under blog heading --}}
+                {{!-- <div class="border-2 border-t-sky-800 rounded-md border-l-sky-200 border-r-sky-200 border-b-sky-200 w-1/5"></div>     --}}
+                {{!-- Blog body --}}
+                <div class=" bg-sky-200 p-2 m-auto border-8 border-sky-200 rounded-2xl ">
+                    <p>{{blog.blog_body}}</p>              
+                </div>                
+        </div>
 
-        {{#each blogs as |blog|}}
-            <div class="bg-sky-200 m-2 my-5 border-8 border-sky-300 rounded-2xl "> 
-                
+        {{#each blog.comments as |comment|}}
+            <div class="bg-sky-200 my-5 border-8 border-sky-300 rounded-2xl w-4/5 m-auto">                             
                     {{!-- Blog Title and author --}}
                     <div class=" flex bg-sky-300 p-2 ">
-                        <a href="/{{blog_id}}" class="w-3/5">
+                        {{!-- <a href="/blog/{{blog_id}}" class="w-3/5"> --}}
                             <div class="text-2xl font-semibold hover:font-semibold hover:text-orange-600 duration-300 ease-in-out ">
-                                <p>{{blog_title}}</p>     
+                                {{!-- <p>{{comment_body}}</p>      --}}
                             </div>
                         </a>
-                        <div class="text-sm w-2/5 text-right">
-                            <p> Posted by {{user.name}} On {{format_date blog_date}}</p>                            
-                        </div>
+                        {{!-- <div class="text-sm w-2/5 text-right">
+                            <p> Posted by {{user.name}} On {{format_date comment_date}}</p>                            
+                        </div> --}}
                     </div>
                     {{!-- Partial underline under blog heading --}}
                     {{!-- <div class="border-2 border-t-sky-800 rounded-md border-l-sky-200 border-r-sky-200 border-b-sky-200 w-1/5"></div>     --}}
                     {{!-- Blog body --}}
                     <div class=" bg-sky-200 p-2 w-full m-auto ">
-                        <p> {{blog_body}}</p>              
+                        <p> {{comment_body}}</p>              
+                    </div>
+                    <div class="text-sm w-full text-right p-2">
+                        <p> Posted by {{user.name}} On {{format_date comment_date}}</p>                            
                     </div>
                 
             </div>
-        {{/each}}
-
+        {{/each}} 
     </div>
 
+
+             
 
 
 
@@ -67,10 +89,8 @@
     
     {{!-- Log in or sign up first --}}
     
-
-
     <div class="flex justify-center my-4 pb-5"> <!-- Add 'mt-4' class for margin-top -->
-        <button id="add-brand-open-modal" class="px-6 py-2 my-1 font-bold duration-200 ease-in-out bg-blue-500 text-zinc-100 rounded-xl hover:bg-blue-700">Add Blog</button>
+        <button id="add-brand-open-modal" class="px-6 py-2 my-1 font-bold duration-200 ease-in-out bg-blue-500 text-zinc-100 rounded-xl hover:bg-blue-700">Add Comment</button>
     </div>
 
 
@@ -142,4 +162,4 @@
 </main>
 
     {{! Include the brandInteract.js script }}
-    <script src="/js/brand.js"></script>
+    {{!-- <script src="/js/brand.js"></script> --}}

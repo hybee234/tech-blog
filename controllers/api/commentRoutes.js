@@ -3,7 +3,7 @@ const { Comment } = require('../../models');
 const checkCommentId = require('../../utils/checkCommentId');
 const withAuth = require('../../utils/auth'); // Import the withAuth middleware
 
-// Root: http://localhost:3001/api/wine/
+// Root: http://localhost:3001/api/comment/
 
 //-----------------------------//
 //- GET - One Wine by Wine_ID -//
