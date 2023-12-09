@@ -6,19 +6,12 @@
     {{!-------------}}
     <h1 class="flex items-center justify-center p-2 text-2xl font-bold text-center md:text-3xl text-orange-400">
         &nbsp;{{blog.blog_title}}&nbsp;
-        
     </h1>
 
-    <h2 class="items-center justify-center p-2 text-lg font-bold text-center md:text-2xl text-zinc-900" >
+    <h2 class="flex items-center justify-center p-2 text-lg font-bold text-center md:text-2xl text-zinc-900" >
         <span class="font-bold text-orange-400">
-            <i class="fa-solid fa-computer fa-beat fa-xl"></i> &nbsp;             
+            <i class="fa-solid fa-computer fa-beat fa-xl"></i> &nbsp; 
         </span>
-
-        <div>Logged in user: {{username}}&nbsp;</div>
-        <div>Logged in state: {{logged_in}}&nbsp;</div>
-        <div>Logged in user_id: {{user_id}}&nbsp;</div>    
-
-
         {{!-- <span class="text-[#722F37]">Brand Page </span> --}}
     </h2>
 
@@ -86,10 +79,6 @@
     </div>
 
 
-             
-
-
-
     {{!----------------}}
     {{!-- Add Button --}}
     {{!----------------}}
@@ -97,10 +86,12 @@
     {{!-- Log in or sign up first --}}
     
     <div class="flex justify-center my-4 pb-5"> <!-- Add 'mt-4' class for margin-top -->
-        <button id="add-brand-open-modal" class="px-6 py-2 my-1 font-bold duration-200 ease-in-out bg-blue-500 text-zinc-100 rounded-xl hover:bg-blue-700">Add Comment</button>
+        <button id="log-in-button" class="px-6 py-2 my-1 font-bold duration-200 ease-in-out bg-blue-500 text-zinc-100 rounded-xl hover:bg-blue-700">Log in (AH 12345678)</button>
     </div>
 
-
+  <div class="flex justify-center my-4 pb-5"> <!-- Add 'mt-4' class for margin-top -->
+        <button id="sign-up-button" class="px-6 py-2 my-1 font-bold duration-200 ease-in-out bg-blue-500 text-zinc-100 rounded-xl hover:bg-blue-700">Sign up</button>
+    </div>
 
     {{!---------------------}}
     {{!-- Add Brand Modal --}}
@@ -169,4 +160,4 @@
 </main>
 
     {{! Include the brandInteract.js script }}
-    {{!-- <script src="/js/brand.js"></script> --}}
+    <script src="/js/login.js"></script>
