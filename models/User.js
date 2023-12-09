@@ -28,6 +28,11 @@ User.init(
                 isEmail: true,
             },
         },
+        active_ind: {
+            type: DataTypes.INTEGER,
+            allowNull: false,
+            defaultValue: 1,
+        },
         password: {
             type: DataTypes.STRING,
             allowNull: false,

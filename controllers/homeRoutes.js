@@ -30,13 +30,13 @@ router.get('/', async (req, res) => {
         // GET User data based on the session's user ID
         console.log (`\x1b[34m GET - homeRoutes: '/'\x1b[0m`)
         console.log (`\x1b[34m GET - Home Page - ALL Blogs\x1b[0m`) 
-        const blogData = await Blog.findAll({
-            where: { active_ind: 1 }
+        const blogData = await Blog.findAll({ where: { active_ind: 1 },
+            include: [{model: User, required: false}]       // Still include user details even if they are inactive
         });
 
         // Serialize the user data
-        // const blog = blogData.get({ plain: true });
-        const blogs = blogData.map(blog => blog.get({ plain: true }));
+        // const blog = blogData.get({ plain: true });                  // Method 1
+        const blogs = blogData.map(blog => blog.get({ plain: true }));  // Method 2
 
         // Render the 'my-profile' page, passing the user data
         // res.render('homepage', { user, user_id: req.session.user_id, logged_in: req.session.logged_in });
@@ -48,7 +48,8 @@ console.log (req.session.logged_in)
             blogs,
             logged_in: req.session.logged_in
         })
-        // res.status(200).json(blog)
+
+        // res.status(200).json(blogs)
 
     } catch (err) {
         console.error("Error occurred:", err);
