@@ -1,4 +1,4 @@
-<main class="bg-sky-900 align-center">
+<main class="bg-sky-700 align-center">
 
 
     {{!-------------}}
@@ -29,22 +29,30 @@
     {{!----------}}
     {{!-- Blogs --}}
     {{!----------}}
-    <div class="mx-auto bg-sky-900 w-5/6">
+    <div class="mx-auto bg-sky-700 w-5/6">
 
         {{#each blogs as |blog|}}
-        <div class="bg-sky-200 m-2 my-5 border-4 border-amber-600 rounded-md"> 
-            <div class=" flex bg-sky-200 p-2 border-2 border-t-sky-100 border-l-sky-100 border-r-sky-100 border-b-blue-700">
-                <div class="text-2xl w-3/5">
-                    <p>{{blog_title}}</p>     
-                </div>
-                <div class="text-sm w-2/5 text-right">
-                    <p> Posted by {{user.name}} On {{format_date blog_date}}</p>                            
-                </div>
+            <div class="bg-sky-200 m-2 my-5 border-4 border-sky-800 rounded-md "> 
+                
+                    {{!-- Blog Title and author --}}
+                    <div class=" flex bg-sky-300 p-2 ">
+                        <a href="/blog/{{blog_id}}" class="w-3/5">
+                            <div class="text-2xl font-semibold hover:font-semibold hover:text-orange-600 duration-300 ease-in-out ">
+                                <p>{{blog_title}}</p>     
+                            </div>
+                        </a>
+                        <div class="text-sm w-2/5 text-right">
+                            <p> Posted by {{user.name}} On {{format_date blog_date}}</p>                            
+                        </div>
+                    </div>
+                    {{!-- Partial underline under blog heading --}}
+                    {{!-- <div class="border-2 border-t-sky-800 rounded-md border-l-sky-200 border-r-sky-200 border-b-sky-200 w-1/5"></div>     --}}
+                    {{!-- Blog body --}}
+                    <div class=" bg-sky-200 p-2 w-11/12 m-auto ">
+                        <p> {{blog_body}}</p>              
+                    </div>
+                
             </div>
-            <div class=" bg-sky-200 p-2 ">
-                <p> {{blog_body}}</p>              
-            </div>
-        </div>
         {{/each}}
 
     </div>
@@ -60,7 +68,7 @@
     
 
 
-    <div class="flex justify-center mt-4"> <!-- Add 'mt-4' class for margin-top -->
+    <div class="flex justify-center my-4 pb-5"> <!-- Add 'mt-4' class for margin-top -->
         <button id="add-brand-open-modal" class="px-6 py-2 my-1 font-bold duration-200 ease-in-out bg-blue-500 text-zinc-100 rounded-xl hover:bg-blue-700">Add Blog</button>
     </div>
 
