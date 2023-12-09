@@ -39,7 +39,7 @@ router.get('/', async (req, res) => {
         // res.render('homepage', { user, user_id: req.session.user_id, logged_in: req.session.logged_in });
         // res.status(200.render('homepage', (blogs);
 
-        console.log(req.session)
+        // console.log(req.session)
 
         res.status(200).render('homepage', {            
             blogs,
@@ -72,8 +72,7 @@ router.get('/:blog_id', checkBlogId, async (req, res) => {
                 {model: Comment, where: {active_ind: 1}, 
                     include: [{model: User, required: false}],              // Still include user details even if they are inactive
                         required: false}                                
-            ]                                   
-            
+            ] 
         });
 
         // Serialize the user data
@@ -82,19 +81,23 @@ router.get('/:blog_id', checkBlogId, async (req, res) => {
 
         // Render the 'my-profile' page, passing the user data
         // res.render('homepage', { user, user_id: req.session.user_id, logged_in: req.session.logged_in });
-        // res.status(200.render('homepage', (blogs);
 
-        // const blog = getOneBlog.get({ plain:true})      // Serialize the data 
-        console.log (blog)
+
+        // console.log (blog)
+        // console.log (req.session.logged_in)
+        // console.log (req.session.user_id)
+        // console.log (req.session.username)
 
 // console.log (req.session.logged_in)
 
         res.status(200).render('oneblog', {            
             blog,
-            logged_in: req.session.logged_in
+            logged_in: req.session.logged_in,            
+            user_id: req.session.user_id,
+            username: req.session.username
         })
 
-        // res.status(200).json(oneBlog)
+        // res.status(200).json(blog)
 
     } catch (err) {
         console.error("Error occurred:", err);
