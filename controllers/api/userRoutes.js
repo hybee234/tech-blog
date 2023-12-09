@@ -1,16 +1,16 @@
 const router = require('express').Router();
 const { User } = require('../../models');
-const nodemailer = require('nodemailer');
+// const nodemailer = require('nodemailer');
 const bcrypt = require('bcrypt');
 
 // Create a transporter for Nodemailer using OAuth2
-const transporter = nodemailer.createTransport({
-  service: 'gmail',
-  auth: {
-    user: process.env.EMAIL_USERNAME,
-    pass: process.env.EMAIL_PASSWORD,
-  }
-});
+// const transporter = nodemailer.createTransport({
+//   service: 'gmail',
+//   auth: {
+//     user: process.env.EMAIL_USERNAME,
+//     pass: process.env.EMAIL_PASSWORD,
+//   }
+// });
 
 // GET route to fetch all users 
 router.get('/', async (req, res) => {
