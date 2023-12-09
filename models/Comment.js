@@ -1,30 +1,42 @@
 const { Model, DataTypes } = require('sequelize');
 const sequelize = require('../config/connection.js');
 
-class Wine extends Model {}
+class Comment extends Model {}
 
-Wine.init(
+Comment.init(
     {        
-        wine_id: {
+        comment_id: {
             type: DataTypes.INTEGER,
             allowNull: false,
             primaryKey: true,
             autoIncrement: true      
         },
-        wine_name: {
+        comment_body: {
             type: DataTypes.STRING,
             allowNull: false
+        },
+        comment_date: {
+            type: DataTypes.DATEONLY,
+            allowNull: false,
+            defaultValue: DataTypes.NOW, 
         },
         active_ind: {
             type: DataTypes.INTEGER,
             allowNull: false,
             defaultValue: 1,
         },
-        brand_id: {
+        user_id: {
             type: DataTypes.INTEGER,
             references: {
-                model: 'brand',
-                key: 'brand_id',
+                model: 'user',
+                key: 'user_id',
+            },
+        },
+        blog_id: {
+            type: DataTypes.INTEGER,
+            references: {
+                model: 'blog',
+                key: 'blog_id',
             },
         },
     },
@@ -33,8 +45,8 @@ Wine.init(
         timestamps: false,
         freezeTableName: true,
         underscored: true,
-        modelName: 'Wine',
+        modelName: 'comment',
     }
 );
 
-module.exports = Wine;
+module.exports = Comment;

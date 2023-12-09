@@ -12,7 +12,7 @@ Challenge 14 - Model View Controller (MVC)
 
 ## Description
 
-Huber's Tech Blog is an forums that allows users to post their ideas and share views on toch topics.
+Huber's Tech Blog is an forums that allows users to post their ideas and share views on tech topics.
 
 High level features of the forum are:
 
