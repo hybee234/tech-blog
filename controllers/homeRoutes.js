@@ -121,6 +121,7 @@ router.get('/:blog_id', checkBlogId, async (req, res) => {
         console.log (req.session.user_id)
         console.log (req.session.username)
         console.log (req.session.name)
+        console.log (req.session.test)
 
 // console.log (req.session.logged_in)
 
@@ -129,7 +130,8 @@ router.get('/:blog_id', checkBlogId, async (req, res) => {
             logged_in: req.session.logged_in,            
             user_id: req.session.user_id,
             username: req.session.username,
-            name: req.session.name
+            name: req.session.name,
+            test: req.session.test
         })
 
         // res.status(200).json(blog)
