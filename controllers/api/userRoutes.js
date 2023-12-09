@@ -1,20 +1,11 @@
 const router = require('express').Router();
 const { User } = require('../../models');
-// const nodemailer = require('nodemailer');
+// const nodemailer = require('./../../util/nodemailer');
 const bcrypt = require('bcrypt');
 
 
 // http://localhost:3001/api/users/
 
-
-// Create a transporter for Nodemailer using OAuth2
-// const transporter = nodemailer.createTransport({
-//   service: 'gmail',
-//   auth: {
-//     user: process.env.EMAIL_USERNAME,
-//     pass: process.env.EMAIL_PASSWORD,
-//   }
-// });
 
 // GET route to fetch all users 
 // router.get('/', async (req, res) => {
@@ -65,6 +56,9 @@ router.post('/login', async (req, res) => {
     // }
 
     try {
+        console.log (`\x1b[35m POST - User Routes: '/:login'\x1b[0m`)
+        console.log (`\x1b[35m POST - ONE Session Record\x1b[0m`)
+        
         // Find user by email
         const userData = await User.findOne({ where: { username: req.body.username } });
 
@@ -89,8 +83,9 @@ router.post('/login', async (req, res) => {
         req.session.name = userData.name;
         req.session.username = userData.username
 
-        console.log(userData.user_id)
-        console.log(userData.name)
+        console.log (`\x1b[35m ${userData.user_id}\x1b[0m`)
+        console.log (`\x1b[35m ${userData.name}\x1b[0m`)
+
         console.log(userData)
         console.log(req.session) //ACCESS SESSION DETAILS BY USING THIS VARIABLE
 
@@ -110,33 +105,28 @@ router.post('/login', async (req, res) => {
 // Signup route: registers a new users
 router.post('/signup', async (req, res) => {
     try {
+        console.log (`\x1b[35m POST - User Routes: '/:signup'\x1b[0m`)
+        console.log (`\x1b[35m POST - ONE User record\x1b[0m`)
+
+        console.log (`\x1b[35m ${req.body.name}\x1b[0m`)
+        console.log (`\x1b[35m ${req.body.username}\x1b[0m`)
+        console.log (`\x1b[35m ${req.body.password}\x1b[0m`)
+
+
         // Create a new user
         const userData = await User.create({
         name: req.body.name,
-        email: req.body.email,
+        username: req.body.username,
         password: req.body.password
         });
 
+        // Create session for new user
         req.session.save(() => {
         req.session.user_id = userData.user_id;
         req.session.logged_in = true;
         req.session.name = userData.name;
 
-        const mailOptions = {
-            from: process.env.EMAIL_USERNAME,
-            to: userData.email,
-            subject: 'Welcome',
-            text: 'Hello from cellar vault!',
-        };
-
-        // Send the email
-        transporter.sendMail(mailOptions, (error, info) => {
-            if (error) {
-            console.error('Error sending email:', error);
-            } else {
-            console.log('Email sent:', info.response);
-            }
-        });
+        // nodemailer()
 
         // Send the response back to the client
         res.status(200).json({ user: userData, message: 'Signup successful, verification email sent' });

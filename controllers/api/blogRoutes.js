@@ -12,15 +12,15 @@ const withAuth = require('../../utils/auth');
 router.get('/:blog_id', checkBlogId, async (req,res) => {    
     try {
         // GET One Blog by Blog ID
-        console.log (`\x1b[33m GET - Blog Routes: '/:blog_id'\x1b[0m`)
-        console.log (`\x1b[33m GET - ONE Blog Record by Blog ID \x1b[0m`)
+        console.log (`\x1b[31m GET - Blog Routes: '/:blog_id'\x1b[0m`)
+        console.log (`\x1b[31m GET - ONE Blog Record by Blog ID \x1b[0m`)
         const getOneBlog = await Blog.findOne({
             where: { 
                 blog_id: req.params.blog_id,                    
             }});
 
         const blog = getOneBlog.get({ plain:true})      // Serialize the data 
-        console.log (blog)
+        // console.log (blog)
         res.status(200).json(blog);
     } catch (err) {
         res.status(400).json(err); // Status 400 - Bad Request
