@@ -13,18 +13,36 @@
         <span class="font-bold text-orange-400">
             <i class="fa-solid fa-computer fa-beat fa-xl"></i> &nbsp;             
         </span>
+    </h2>
 
+    <table class="w-1/2 mx-auto text-center table-auto text-yellow-400">
+        <thead>
+                <tr>
+                    <th><u>Logged in user_id:</u></th>
+                    <th><u>Logged in name:</u></th>
+                    <th><u>Logged in username:</u></th>
+                    <th><u>Logged in state:</u></th>
+                    <th><u>Test:</u></th>
+                    
+                </tr>
+        </thead>
+        <tbody>
+                <tr>
+                    <td>{{user_id}} </td>
+                    <td>{{name}} </td>
+                    <td>{{username}} </td>
+                    <td>{{logged_in}} </td>                
+                    <td>{{test}} </td>                
+                </tr>
+        </tbody> 
+    </table>
+
+   {{!-- <h3 class="items-center justify-center my-4 text-sm text-center md:text-md text-zinc-900">
         <div>Logged in user: {{username}}&nbsp;</div>
         <div>Logged in state: {{logged_in}}&nbsp;</div>
         <div>Logged in user_id: {{user_id}}&nbsp;</div>    
-
-
-        {{!-- <span class="text-[#722F37]">Brand Page </span> --}}
-    </h2>
-
-    {{!-- <h3 class="flex items-center justify-center my-4 text-lg font-bold text-center md:text-2xl text-zinc-900">
-        &nbsp;{{blog.comments.[0].comment_body}} &nbsp; 
     </h3> --}}
+
 
     {{!-- <p> Chii Kawa!</p>
 

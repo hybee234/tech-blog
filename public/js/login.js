@@ -1,6 +1,7 @@
 const logInButtonEl = document.getElementById ("log-in-button");
 const signUpButtonEl = document.getElementById ("sign-up-button");
 
+//Log in
 
 const logIn = async ()=> {
     console.log("logIn engaged")
@@ -24,6 +25,7 @@ const logIn = async ()=> {
         const user = await response.json()
 
         if (response.ok) {
+            console.log (response)
             // window.location.reload() // Reload screen 
         } else {
             alert('Failed to log in');    
@@ -33,6 +35,9 @@ const logIn = async ()=> {
     }
     return;
 }
+
+// Create account 
+
 
 const createAccount = async ()=> {
     console.log("createAccount engaged")
@@ -52,12 +57,11 @@ const createAccount = async ()=> {
                     'Content-Type': 'application/json',
                 },
             });
-    
-
 
 
         if (response.ok) {
             window.location.reload() // Reload screen 
+            console.log (response)
         } else {
             alert('Failed to log in');    
         }return;
@@ -67,8 +71,9 @@ const createAccount = async ()=> {
     return;
 }
 
-
-
+//----------------------------------//
+//- Event Listener - Log in Button -//
+//----------------------------------//
 
 logInButtonEl.addEventListener('click', function(event) {
     console.log("Log in button clicked")

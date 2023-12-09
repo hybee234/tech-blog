@@ -63,7 +63,7 @@
                 <!-- Conditionally rendered links -->
                 {{#if logged_in}}
                 <!-- Profile Dropdown -->
-                <li class="relative">
+                {{!-- <li class="relative">
                     <button id="profile-button" class="flex items-center space-x-2">
                     <img
                         src="/images/placeholder-img.png"
@@ -74,20 +74,20 @@
                     <div
                     id="profile-dropdown"
                     class="absolute right-0 hidden w-48 py-2 mt-2 shadow-xl bg-zinc-800 md:top-[65px] mx-auto justify-center items-center"
-                    >
+                    > --}}
                     <p
                         class="flex items-center justify-center py-2 text-center border-b border-zinc-400/20 text-zinc-100"
                     >Welcome, {{name}}</p>
-                    <a
+                    {{!-- <a
                         href="/my-profile"
                         class="block w-full px-4 py-2 text-sm text-center duration-300 ease-in-out text-zinc-100 hover:bg-zinc-500/60"
-                    >My Profile</a>
+                    >My Profile</a> --}}
                     <button
                         id="logout-button"
                         class="block w-full px-4 py-2 text-sm duration-300 ease-in-out text-zinc-100 hover:bg-zinc-500/60"
                     >Logout</button>
                     </div>
-                </li>
+                {{!-- </li> --}}
                 {{else}}
                 <!-- Login/Sign Up link -->
                 <li class="nav-item">

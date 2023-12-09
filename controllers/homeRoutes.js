@@ -72,7 +72,10 @@ router.get('/', async (req, res) => {
 
         res.status(200).render('homepage', {            
             blogs,
-            logged_in: req.session.logged_in
+            logged_in: req.session.logged_in,            
+            user_id: req.session.user_id,
+            username: req.session.username,
+            name: req.session.name
         })
 
         // res.status(200).json(blogs)
@@ -84,9 +87,9 @@ router.get('/', async (req, res) => {
 });
 
 
-//----------------------//
-//- Blog - Detail Page -//
-//----------------------//
+//--------------------------//
+//- One Blog - Detail Page -//
+//--------------------------//
 
 //Pull Blog + User, Comment + User
 router.get('/:blog_id', checkBlogId, async (req, res) => {
@@ -113,9 +116,12 @@ router.get('/:blog_id', checkBlogId, async (req, res) => {
 
 
         // console.log (blog)
+        console.log (req.session)
         console.log (req.session.logged_in)
         console.log (req.session.user_id)
         console.log (req.session.username)
+        console.log (req.session.name)
+        console.log (req.session.test)
 
 // console.log (req.session.logged_in)
 
@@ -123,7 +129,9 @@ router.get('/:blog_id', checkBlogId, async (req, res) => {
             blog,
             logged_in: req.session.logged_in,            
             user_id: req.session.user_id,
-            username: req.session.username
+            username: req.session.username,
+            name: req.session.name,
+            test: req.session.test
         })
 
         // res.status(200).json(blog)
