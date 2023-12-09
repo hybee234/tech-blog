@@ -11,6 +11,35 @@ const checkBlogId = require('./../utils/checkBlogId');
 //- Login Page -//
 //--------------//
 
+router.get('/login', async (req, res) => {
+    try {
+        // GET User data based on the session's user ID
+        console.log (`\x1b[34m GET - homeRoutes: '/login'\x1b[0m`)
+        console.log (`\x1b[34m GET - Log in Page\x1b[0m`) 
+        
+        // Serialize the user data
+        // const blog = blogData.get({ plain: true });                  // Method 1
+        // const blogs = blogData.map(blog => blog.get({ plain: true }));  // Method 2
+
+        // Render the 'my-profile' page, passing the user data
+        // res.render('homepage', { user, user_id: req.session.user_id, logged_in: req.session.logged_in });
+        // res.status(200.render('homepage', (blogs);
+
+        // console.log(req.session)
+
+        res.status(200).render('login', {            
+            // blogs,
+            // logged_in: req.session.logged_in
+        })
+
+        // res.status(200).json(blogs)
+
+    } catch (err) {
+        console.error("Error occurred:", err);
+        res.status(500).json({ message: 'Internal Server Error', error: err });
+    }
+});
+
 
 
 //-----------//
@@ -39,7 +68,7 @@ router.get('/', async (req, res) => {
         // res.render('homepage', { user, user_id: req.session.user_id, logged_in: req.session.logged_in });
         // res.status(200.render('homepage', (blogs);
 
-        // console.log(req.session)
+        console.log(req.session)
 
         res.status(200).render('homepage', {            
             blogs,
@@ -84,9 +113,9 @@ router.get('/:blog_id', checkBlogId, async (req, res) => {
 
 
         // console.log (blog)
-        // console.log (req.session.logged_in)
-        // console.log (req.session.user_id)
-        // console.log (req.session.username)
+        console.log (req.session.logged_in)
+        console.log (req.session.user_id)
+        console.log (req.session.username)
 
 // console.log (req.session.logged_in)
 
