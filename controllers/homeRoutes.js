@@ -1,10 +1,7 @@
 const express = require('express');
 const router = express.Router();
 const { Blog, Comment, User } = require('../models');
-// const checkBrandId = require('./../utils/checkBrandId');
-// const checkWineId = require('./../utils/checkWineId');
-// const checkVintageId = require('./../utils/checkVintageId');
-// const checkTransactionId = require('./../utils/checkTransactionId');
+const checkBlogId = require('./../utils/checkBlogId');
 // const withAuth = require('./../utils/auth');
 
 // const sequelize = require('./../config/connection');
@@ -15,16 +12,16 @@ const { Blog, Comment, User } = require('../models');
 //--------------//
 
 
+
 //-----------//
 //- Sign up -//
 //-----------//
 
 
-//--------------------//
-//- Homepage - Blogs -//
-//--------------------//
+//------------------------//
+//- Homepage - All Blogs -//
+//------------------------//
 
-// Home page - show all Blogs
 router.get('/', async (req, res) => {
     try {
         // GET User data based on the session's user ID
@@ -42,7 +39,7 @@ router.get('/', async (req, res) => {
         // res.render('homepage', { user, user_id: req.session.user_id, logged_in: req.session.logged_in });
         // res.status(200.render('homepage', (blogs);
 
-console.log (req.session.logged_in)
+        console.log(req.session)
 
         res.status(200).render('homepage', {            
             blogs,
@@ -62,13 +59,55 @@ console.log (req.session.logged_in)
 //- Blog - Detail Page -//
 //----------------------//
 
+//Pull Blog + User, Comment + User
+router.get('/:blog_id', checkBlogId, async (req, res) => {
+    try {
+        // GET User data based on the session's user ID
+        console.log (`\x1b[34m GET - homeRoutes: '/:blog_id'\x1b[0m`)
+        console.log (`\x1b[34m GET - ONE Blog Record by Blog ID\x1b[0m`) 
+        const getOneBlog = await Blog.findOne({
+            where: { active_ind: 1, blog_id: req.params.blog_id},
+            include: [
+                {model: User, required: false},                             // Still include user details even if they are inactive
+                {model: Comment, where: {active_ind: 1}, 
+                    include: [{model: User, required: false}],              // Still include user details even if they are inactive
+                        required: false}                                
+            ]                                   
+            
+        });
 
+        // Serialize the user data
+        const blog = getOneBlog.get({ plain: true });                  // Method 1
+        // const oneBlog = getOneBlog.map(blog => blog.get({ plain: true }));  // Method 2
+
+        // Render the 'my-profile' page, passing the user data
+        // res.render('homepage', { user, user_id: req.session.user_id, logged_in: req.session.logged_in });
+        // res.status(200.render('homepage', (blogs);
+
+        // const blog = getOneBlog.get({ plain:true})      // Serialize the data 
+        console.log (blog)
+
+// console.log (req.session.logged_in)
+
+        res.status(200).render('oneblog', {            
+            blog,
+            logged_in: req.session.logged_in
+        })
+
+        // res.status(200).json(oneBlog)
+
+    } catch (err) {
+        console.error("Error occurred:", err);
+        res.status(500).json({ message: 'Internal Server Error', error: err });
+    }
+});
 
 
 //--------------------------//
 //- User's Blogs Dashboard -//
 //--------------------------//
 
+// Blogs written by the user who has logged in
 
 
 
