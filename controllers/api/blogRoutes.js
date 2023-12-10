@@ -1,7 +1,7 @@
 const router = require('express').Router();
 const { Blog } = require('../../models');
 const checkBlogId = require('../../utils/checkBlogId');
-const withAuth = require('../../utils/auth');
+const checkLoggedIn = require('../../utils/checkLoggedIn');
 
 // Root: http://localhost:3001/api/blog/
 

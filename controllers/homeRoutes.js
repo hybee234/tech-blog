@@ -2,10 +2,9 @@ const express = require('express');
 const router = express.Router();
 const { Blog, Comment, User } = require('../models');
 const checkBlogId = require('./../utils/checkBlogId');
-// const withAuth = require('./../utils/auth');
+const checkLoggedIn = require('./../utils/checkLoggedIn');
 
 // const sequelize = require('./../config/connection');
-
 
 //--------------//
 //- Login Page -//
@@ -22,15 +21,20 @@ router.get('/login', async (req, res) => {
         // const blogs = blogData.map(blog => blog.get({ plain: true }));  // Method 2
 
         // Render the 'my-profile' page, passing the user data
-        // res.render('homepage', { user, user_id: req.session.user_id, logged_in: req.session.logged_in });
+        res.status(200).render('login', {
+            // user,
+            // user_id: req.session.user_id,
+            // logged_in: req.session.logged_in
+        });
+
         // res.status(200.render('homepage', (blogs);
 
         // console.log(req.session)
 
-        res.status(200).render('login', {            
+        // res.status(200).render('login', {            
             // blogs,
             // logged_in: req.session.logged_in
-        })
+        // })
 
         // res.status(200).json(blogs)
 
@@ -55,7 +59,8 @@ router.get('/', async (req, res) => {
     try {
         // GET User data based on the session's user ID
         console.log (`\x1b[34m GET - homeRoutes: '/'\x1b[0m`)
-        console.log (`\x1b[34m GET - Home Page - ALL Blogs\x1b[0m`) 
+        console.log (`\x1b[34m GET - Home Page - ALL Blogs\x1b[0m`)
+        console.log (`\x1b[34m Logged in status \x1b[32m${req.session.logged_in}\x1b[0m`) 
         const blogData = await Blog.findAll({ where: { active_ind: 1 },
             include: [{model: User, required: false}]       // Still include user details even if they are inactive
         });
@@ -70,12 +75,14 @@ router.get('/', async (req, res) => {
 
         console.log(req.session)
 
+
         res.status(200).render('homepage', {            
             blogs,
             logged_in: req.session.logged_in,            
             user_id: req.session.user_id,
             username: req.session.username,
-            name: req.session.name
+            name: req.session.name,
+            test: req.session.test
         })
 
         // res.status(200).json(blogs)
@@ -92,11 +99,12 @@ router.get('/', async (req, res) => {
 //--------------------------//
 
 //Pull Blog + User, Comment + User
-router.get('/:blog_id', checkBlogId, async (req, res) => {
+router.get('/detail/:blog_id', checkLoggedIn, checkBlogId, async (req, res) => {
     try {
         // GET User data based on the session's user ID
         console.log (`\x1b[34m GET - homeRoutes: '/:blog_id'\x1b[0m`)
-        console.log (`\x1b[34m GET - ONE Blog Record by Blog ID\x1b[0m`) 
+        console.log (`\x1b[34m GET - ONE Blog Record by Blog ID\x1b[0m`)
+        console.log (`\x1b[34m Logged in status \x1b[32m${req.session.logged_in}\x1b[0m`) 
         const getOneBlog = await Blog.findOne({
             where: { active_ind: 1, blog_id: req.params.blog_id},
             include: [
@@ -125,7 +133,7 @@ router.get('/:blog_id', checkBlogId, async (req, res) => {
 
 // console.log (req.session.logged_in)
 
-        res.status(200).render('oneblog', {            
+        res.status(200).render('blogdetail', {            
             blog,
             logged_in: req.session.logged_in,            
             user_id: req.session.user_id,

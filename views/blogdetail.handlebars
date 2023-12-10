@@ -18,12 +18,11 @@
     <table class="w-1/2 mx-auto text-center table-auto text-yellow-400">
         <thead>
                 <tr>
-                    <th><u>Logged in user_id:</u></th>
-                    <th><u>Logged in name:</u></th>
-                    <th><u>Logged in username:</u></th>
+                    <th><u>user_id:</u></th>
+                    <th><u>name:</u></th>
+                    <th><u>username:</u></th>
                     <th><u>Logged in state:</u></th>
-                    <th><u>Test:</u></th>
-                    
+                    <th><u>Test:</u></th>                    
                 </tr>
         </thead>
         <tbody>
@@ -58,7 +57,7 @@
         <div class="bg-sky-200 m-2 my-5 border-8 border-sky-300 rounded-2xl ">             
                 {{!-- Blog Title and author --}}
                 <div class=" flex bg-sky-300 p-2 ">
-                    <a href="/{{blog_id}}" class="w-3/5">
+                    <a href="/detail/{{blog_id}}" class="w-3/5">
                         <div class="text-2xl font-semibold hover:font-semibold hover:text-orange-600 duration-300 ease-in-out ">
                             <p>{{blog.blog_title}}</p>   
                             

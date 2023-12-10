@@ -18,11 +18,11 @@
     <table class="w-1/2 mx-auto text-center table-auto text-yellow-400">
         <thead>
                 <tr>
-                    <th><u>Logged in user_id:</u></th>
-                    <th><u>Logged in name:</u></th>
-                    <th><u>Logged in username:</u></th>
+                    <th><u>user_id:</u></th>
+                    <th><u>name:</u></th>
+                    <th><u>username:</u></th>
                     <th><u>Logged in state:</u></th>
-                    
+                    <th><u>Test:</u></th>      
                 </tr>
         </thead>
         <tbody>
@@ -30,7 +30,8 @@
                     <td>{{user_id}} </td>
                     <td>{{name}} </td>
                     <td>{{username}} </td>
-                    <td>{{logged_in}} </td>                
+                    <td>{{logged_in}} </td>           
+                    <td>{{test}} </td>         
                 </tr>
         </tbody> 
     </table>
@@ -52,7 +53,7 @@
                 
                     {{!-- Blog Title and author --}}
                     <div class=" flex bg-sky-300 p-2 ">
-                        <a href="/{{blog_id}}" class="w-3/5">
+                        <a href="/detail/{{blog_id}}" class="w-3/5">
                             <div class="text-2xl font-semibold hover:font-semibold hover:text-orange-600 duration-300 ease-in-out ">
                                 <p>{{blog_title}}</p>     
                             </div>
@@ -157,4 +158,4 @@
 </main>
 
     {{! Include the brandInteract.js script }}
-    <script src="/js/brand.js"></script>
+    {{!-- <script src="/js/brand.js"></script> --}}

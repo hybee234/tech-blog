@@ -9,7 +9,5 @@ module.exports = {
     format_currency: (cost) => {
         return `$ ${cost}`;
     },
-
-
 };
 

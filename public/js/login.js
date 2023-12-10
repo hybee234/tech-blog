@@ -7,12 +7,14 @@ const logIn = async ()=> {
     console.log("logIn engaged")
     try{
         let JSONBody = {}    
-        JSONBody.username = "AH"
+        JSONBody.username = "HH"
         JSONBody.password = "12345678"
 
         //Stringify the Array to prepare for FETCH
         const bodyStringified = JSON.stringify(JSONBody)
         
+        console.log(bodyStringified)
+
         // FETCH Request (POST Method)
         const response = await fetch(`/api/users/login`, {
             method: 'POST',
@@ -27,8 +29,9 @@ const logIn = async ()=> {
         if (response.ok) {
             console.log (response)
             // window.location.reload() // Reload screen 
+            window.location.href = "/" // Redirect to homePage
         } else {
-            alert('Failed to log in');    
+            alert('Log in unsuccessful');    
         }return;
     } catch (err) {
         console.error(err);        
@@ -37,7 +40,6 @@ const logIn = async ()=> {
 }
 
 // Create account 
-
 
 const createAccount = async ()=> {
     console.log("createAccount engaged")
