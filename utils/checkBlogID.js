@@ -6,7 +6,7 @@ const checkBlogId = async (req, res, next) => {
         if (blogIdExist) {
             next();
         } else {              
-            res.status(400).json({ message: `Blog_id ${req.params.brand_id} does not exist, please try again` }); // Status 400 = Bad Request
+            res.status(400).json({ message: `Blog_id ${req.params.blog_id} does not exist, please try again` }); // Status 400 = Bad Request
         return;
     }
 };
