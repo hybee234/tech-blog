@@ -1,12 +1,13 @@
 <main class="bg-sky-700 align-center">
-
-{{req.session.username}}
-
     {{!-------------}}
     {{!-- Heading --}}
     {{!-------------}}
     <h1 class="flex items-center justify-center p-2 text-2xl font-bold text-center md:text-3xl text-orange-400">
-        &nbsp;Home Page&nbsp;       
+        {{#if logged_in}}
+        &nbsp;Welcome Back, {{name}}&nbsp;       
+        {{else}}
+        Welcome! 
+        {{/if}}
     </h1>
 
     <h2 class="items-center justify-center p-2 text-lg font-bold text-center md:text-2xl text-zinc-900" >

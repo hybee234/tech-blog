@@ -34,7 +34,7 @@ app.use(session(sess));
 
 // Sets handlebars configurations
 app.set('view engine', 'handlebars');
-app.engine('handlebars', hbs.engine
+app.engine('handlebars', hbs.engine 
 );
 
 // Middlewares
