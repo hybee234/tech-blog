@@ -1,6 +1,7 @@
 const router = require('express').Router();
 const { Comment } = require('../../models');
 const checkCommentId = require('./../../utils/checkCommentId');
+const checkBlogId = require('./../../utils/checkBlogId');
 const checkLoggedIn = require('./../../utils/checkLoggedIn'); // Import the withAuth middleware
 
 // Root: http://localhost:3001/api/comment/
@@ -27,34 +28,34 @@ const checkLoggedIn = require('./../../utils/checkLoggedIn'); // Import the with
 //     }
 // });
 
-//---------------------------------//
-//- POST - Add a Wine to Brand ID -//
-//---------------------------------//
+//-----------------------------------//
+//- POST - Add a Comment to Blog ID -//
+//-----------------------------------//
 
-// API: http://localhost:3001/api/wine/:brand_id
-// Example : http://localhost:3001/api/wine/6
+// API: http://localhost:3001/api/comment/:blog_id
+// Example : http://localhost:3001/api/comment/1
 // Example JSON Body
-//  {
-//	    "wine_name" : "Diana Madeline",
-//	    "active_ind" : 1	
-//  }
+// {
+//     "comment_body" : "Long text",
+//     "user_id" : 1	    
+// }
 
-// router.post('/:brand_id', withAuth, checkBrandId, async (req, res) => {
-//     try {
-//         // POST new Wine under Brand ID
-//         console.log (`\x1b[33m POST - Wine routes: '/:brand_id'\x1b[0m`)
-//         console.log (`\x1b[33m POST - ADD Wine Record under Brand ID \x1b[0m`)
-//         const postNewWine = await Wine.create(
-//             {
-//                 wine_name: req.body.wine_name,
-//                 active_ind: req.body.active_ind,
-//                 brand_id: req.params.brand_id
-//             });
-//         res.status(200).json(postNewWine);        
-//     } catch (err) {
-//         res.status(400).json(err); // Status 400 - Bad Request
-//     }
-// });
+router.post('/:blog_id', checkLoggedIn, checkBlogId, async (req, res) => {
+    try {
+        // POST new Comment under Blog ID
+        console.log (`\x1b[33m POST - Comment Routes: '/:blog_id'\x1b[0m`)
+        console.log (`\x1b[33m POST - ADD Comment Record under Blog ID \x1b[0m`)
+        const postNewComment = await Comment.create(
+            {
+                comment_body: req.body.comment_body,
+                user_id: req.body.user_id,
+                blog_id: req.params.blog_id
+            });
+        res.status(200).json(postNewComment);        
+    } catch (err) {
+        res.status(400).json(err); // Status 400 - Bad Request
+    }
+});
 
 //--------------------------------//
 //- PUT - Update Wine by Wine ID -//
