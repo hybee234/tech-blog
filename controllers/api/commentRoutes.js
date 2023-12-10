@@ -1,7 +1,7 @@
 const router = require('express').Router();
 const { Comment } = require('../../models');
 const checkCommentId = require('./../../utils/checkCommentId');
-const checkBlogId = require('./../../utils/checkBlogId');
+const checkBlogId = require('../../utils/checkBlogId is good');
 const checkLoggedIn = require('./../../utils/checkLoggedIn'); // Import the withAuth middleware
 
 // Root: http://localhost:3001/api/comment/
