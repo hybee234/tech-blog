@@ -157,6 +157,56 @@ router.get('/detail/:blog_id', checkLoggedIn, checkBlogId, async (req, res) => {
 
 // Blogs written by the user who has logged in
 
+// router.get('/dashboard/:user_id', checkLoggedIn, async (req, res) => {
+//     try {
+//         // GET User data based on the session's user ID
+//         console.log (`\x1b[34m GET - homeRoutes: '/:blog_id'\x1b[0m`)
+//         console.log (`\x1b[34m GET - ONE Blog Record by Blog ID\x1b[0m`)
+//         console.log (`\x1b[34m Logged in status \x1b[32m${req.session.logged_in}\x1b[0m`) 
+//         const getOneBlog = await Blog.findOne({
+//             where: { active_ind: 1, blog_id: req.params.blog_id},
+//             include: [
+//                 {model: User, required: false},                             // Still include user details even if they are inactive
+//                 {model: Comment, where: {active_ind: 1}, 
+//                     include: [{model: User, required: false}],              // Still include user details even if they are inactive
+//                         required: false}                                
+//             ] 
+//         });
+
+//         // Serialize the user data
+//         const blog = getOneBlog.get({ plain: true });                  // Method 1
+//         // const oneBlog = getOneBlog.map(blog => blog.get({ plain: true }));  // Method 2
+
+//         // Render the 'my-profile' page, passing the user data
+//         // res.render('homepage', { user, user_id: req.session.user_id, logged_in: req.session.logged_in });
+
+
+//         // console.log (blog)
+//         console.log (req.session)
+//         console.log (req.session.logged_in)
+//         console.log (req.session.user_id)
+//         console.log (req.session.username)
+//         console.log (req.session.name)
+//         console.log (req.session.test)
+
+// // console.log (req.session.logged_in)
+
+//         res.status(200).render('blogdetail', {            
+//             blog,
+//             logged_in: req.session.logged_in,            
+//             user_id: req.session.user_id,
+//             username: req.session.username,
+//             name: req.session.name,
+//             test: req.session.test
+//         })
+
+//         // res.status(200).json(blog)
+
+//     } catch (err) {
+//         console.error("Error occurred:", err);
+//         res.status(500).json({ message: 'Internal Server Error', error: err });
+//     }
+// });
 
 
 
