@@ -4,7 +4,7 @@
   "description": "Challenge 14 - Model View Controller (MVC)",
   "engines": {
     "node": "20.7.0",
-    "npm": "10.1.0"
+    "npm": "10.2.5"
   },
   "main": "server.js",
   "scripts": {
