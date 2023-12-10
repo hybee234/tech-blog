@@ -1,6 +1,6 @@
 const checkLoggedIn = (req, res, next) => {
   // Redirects to /login if not logged in
-  console.log (`\x1b[33m checkLoggedIn engaged'\x1b[0m`)
+  console.log (`\x1b[33m checkLoggedIn engaged\x1b[0m`)
 
   if (!req.session.logged_in) {
     console.log (`\x1b[33m req.session.logged_in: FALSE - redirecting to '/login'\x1b[0m`)

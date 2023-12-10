@@ -1,6 +1,5 @@
 <main class="bg-sky-700 align-center">
 
-
     {{!-------------}}
     {{!-- Heading --}}
     {{!-------------}}
@@ -14,34 +13,6 @@
             <i class="fa-solid fa-computer fa-beat fa-xl"></i> &nbsp;             
         </span>
     </h2>
-
-    <table class="w-1/2 mx-auto text-center table-auto text-yellow-400">
-        <thead>
-                <tr>
-                    <th><u>user_id:</u></th>
-                    <th><u>name:</u></th>
-                    <th><u>username:</u></th>
-                    <th><u>Logged in state:</u></th>
-                    <th><u>Test:</u></th>                    
-                </tr>
-        </thead>
-        <tbody>
-                <tr>
-                    <td>{{user_id}} </td>
-                    <td>{{name}} </td>
-                    <td>{{username}} </td>
-                    <td>{{logged_in}} </td>                
-                    <td>{{test}} </td>                
-                </tr>
-        </tbody> 
-    </table>
-
-   {{!-- <h3 class="items-center justify-center my-4 text-sm text-center md:text-md text-zinc-900">
-        <div>Logged in user: {{username}}&nbsp;</div>
-        <div>Logged in state: {{logged_in}}&nbsp;</div>
-        <div>Logged in user_id: {{user_id}}&nbsp;</div>    
-    </h3> --}}
-
 
     {{!-- <p> Chii Kawa!</p>
 
@@ -57,12 +28,9 @@
         <div class="bg-sky-200 m-2 my-5 border-8 border-sky-300 rounded-2xl ">             
                 {{!-- Blog Title and author --}}
                 <div class=" flex bg-sky-300 p-2 ">
-                    <a href="/detail/{{blog_id}}" class="w-3/5">
-                        <div class="text-2xl font-semibold hover:font-semibold hover:text-orange-600 duration-300 ease-in-out ">
-                            <p>{{blog.blog_title}}</p>   
-                            
-                        </div>
-                    </a>
+                    <div class="w-3/5 text-2xl font-semibold hover:font-semibold hover:text-orange-600 duration-300 ease-in-out ">
+                        <p>{{blog.blog_title}}</p>                           
+                    </div>
                     <div class="text-sm w-2/5 text-right">
                         <p> Posted by {{blog.user.name}} On {{format_date blog.blog_date}}</p>                                                    
                     </div>
@@ -103,10 +71,6 @@
     </div>
 
 
-             
-
-
-
     {{!----------------}}
     {{!-- Add Button --}}
     {{!----------------}}
@@ -114,29 +78,29 @@
     {{!-- Log in or sign up first --}}
     
     <div class="flex justify-center my-4 pb-5"> <!-- Add 'mt-4' class for margin-top -->
-        <button id="add-brand-open-modal" class="px-6 py-2 my-1 font-bold duration-200 ease-in-out bg-blue-500 text-zinc-100 rounded-xl hover:bg-blue-700">Add Comment</button>
+        <button id="add-comment-open-modal" class="px-6 py-2 my-1 font-bold duration-200 ease-in-out bg-blue-500 text-zinc-100 rounded-xl hover:bg-blue-700">Add Comment</button>
     </div>
 
 
 
-    {{!---------------------}}
-    {{!-- Add Brand Modal --}}
-    {{!---------------------}}
+    {{!-----------------------}}
+    {{!-- Add Comment Modal --}}
+    {{!-----------------------}}
 
-    <div id="add-brand-modal" class="modal justify-center w-full text-center">
-        <form id="add-brand-form" class="w-full p-1 m-auto my-5 bg-orange-300 border-2 rounded-3xl modal-content">
-            <span id="add-brand-close-button" class="close">&times;</span>    
-            <h2 class="block uppercase text-lg font-semibold md:text-2xl text-[#722F37] mt-5"> Add a Brand to your vault </h2>    
+    <div id="add-comment-modal" class="modal justify-center w-full text-center">
+        <form id="add-comment-form" data-blog-id="{{blog.blog_id}}" class="w-full p-1 m-auto my-5 bg-orange-300 border-2 rounded-3xl modal-content">
+            <span id="add-comment-close-button" class="close">&times;</span>    
+            <h2 class="block uppercase text-lg font-semibold md:text-2xl text-[#722F37] mt-5"> Add your comment </h2>    
             <div class="flex flex-wrap mx-1 my-2">
                 <div class="w-full px-0">
-                    <label class="block mb-2 text-xs font-bold tracking-wide text-gray-700 uppercase" for="new-brand-name"> Brand Name </label>
-                    <input class="w-full px-4 py-3 mb-0 leading-tight duration-200 ease-in-out bg-gray-200 border border-gray-200 appearance-none rounded-xl text-zinc-900 hover:border-zinc-500 focus:outline-none focus:border-zinc-500" id="new-brand-name" name="brandName" type="text" required placeholder="Enter Brand name">
+                    <label class="block mb-2 text-xs font-bold tracking-wide text-gray-700 uppercase" for="new-comment"> Comment: </label>
+                    <textarea class="w-full px-4 py-3 mb-0 leading-tight duration-200 ease-in-out bg-gray-200 border border-gray-200 appearance-none rounded-xl text-zinc-900 hover:border-zinc-500 focus:outline-none focus:border-zinc-500" id="new-comment" name="comment" type="textarea" required placeholder="Type your comment here ... " rows="10" cols="30"></textarea>
                 </div>
             </div>            
             {{!-- submit button --}}
-            <button id="add-brand-submit-button" class="px-4 py-2 my-3 font-bold duration-200 ease-in-out bg-blue-500 text-zinc-100 rounded-xl hover:bg-blue-700" type="submit" value="submit"> Submit </button>
+            <button id="add-comment-submit-button" class="px-4 py-2 my-3 font-bold duration-200 ease-in-out bg-blue-500 text-zinc-100 rounded-xl hover:bg-blue-700" type="submit" value="submit"> Submit </button>
             {{!-- cancel button --}}
-            <button id="add-brand-cancel-button" class="px-4 py-2 my-3 font-bold duration-200 ease-in-out bg-blue-500 text-zinc-100 rounded-xl hover:bg-blue-700" type="button" value="cancel"> Cancel </button>
+            <button id="add-comment-cancel-button" class="px-4 py-2 my-3 font-bold duration-200 ease-in-out bg-blue-500 text-zinc-100 rounded-xl hover:bg-blue-700" type="button" value="cancel"> Cancel </button>
         </form>
     </div> 
 
@@ -185,5 +149,29 @@
 
 </main>
 
+
+    <table class="w-1/2 mx-auto text-center table-auto text-yellow-400">
+        <thead>
+                <tr>
+                    <th><u>user_id:</u></th>
+                    <th><u>name:</u></th>
+                    <th><u>username:</u></th>
+                    <th><u>Logged in state:</u></th>
+                    <th><u>Test:</u></th>                    
+                </tr>
+        </thead>
+        <tbody>
+                <tr>
+                    <td id="session-user-id">{{user_id}} </td>
+                    <td id="session-name">{{name}} </td>
+                    <td id="session-username">{{username}} </td>
+                    <td id="session-logged-in">{{logged_in}} </td>                
+                    <td id="session-test">{{test}} </td>                
+                </tr>
+        </tbody> 
+    </table>
+    <div id="session-details" data-user-id="{{user_id}}" data-name="{{name}}" data-username="{{username}}" data-logged-in="{{logged_in}}" data-test="{{test}}" class="text-center"> 😊 </div>
+
+
     {{! Include the brandInteract.js script }}
-    {{!-- <script src="/js/brand.js"></script> --}}
+    <script src="/js/detail.js"></script>

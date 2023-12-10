@@ -19,7 +19,8 @@ const sess = {
     saveUninitialized: false,
     rolling: true,
     cookie: {
-        maxAge: 24 * 60 * 60 * 1000, // 24 hours in milliseconds
+        maxAge: 5 * 60 * 1000, // 5 minutes in milliseconds
+        // maxAge: 24 * 60 * 60 * 1000, // 24 hours in milliseconds
         httpOnly: true,
         secure: false, // Set to true if using HTTPS
         sameSite: 'lax',
