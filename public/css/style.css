@@ -29,41 +29,41 @@ li {
 /* Navbar */
 
 /* Responsive Navigation Styles */
-.hamburger {
-  display: none; /* Only for mobile */
+/* .hamburger {
+  display: none; 
   cursor: pointer;
-}
+} */
 
-.bar {
+/* .bar {
   display: block;
   width: 25px;
   height: 3px;
   margin: 5px auto;
   background-color: #e1dfdf;
   transition: all 0.3s ease-in-out;
-}
+} */
 
 /* Mobile Navigation Menu */
-@media (max-width: 768px) {
+/* @media (max-width: 768px) {
   .hamburger {
     display: block;
-  }
+  } */
 
   /* Hamburger Icon Animation */
-  .hamburger.active .bar:nth-child(2) {
+  /* .hamburger.active .bar:nth-child(2) {
     opacity: 0;
-  }
+  } */
 
-  .hamburger.active .bar:nth-child(1) {
+  /* .hamburger.active .bar:nth-child(1) {
     transform: translateY(8px) rotate(45deg);
-  }
+  } */
 
-  .hamburger.active .bar:nth-child(3) {
-    transform: translateY(-8px) rotate(-45deg);
-  }
+  /* .hamburger.active .bar:nth-child(3) {
+    transform: translateY(-8px) rotate(-45deg); */
+  /* } */
 
   /* Mobile Menu */
-  .nav-menu {
+  /* .nav-menu {
     position: fixed;
     left: -100%;
     top: 70px;
@@ -75,34 +75,34 @@ li {
     text-align: center;
     transition: left 0.3s;
     z-index: 10;
-  }
+  } */
 
-  .nav-item {
-    margin: 16px 0;
-  }
+  /* .nav-item {
+    margin: 10px 0;
+  } */
 
-  .nav-menu.active {
+  /* .nav-menu.active {
     left: 0;
-  }
-}
+  } */
+/* } */
 
 /* Dropdown Styles */
-#profile-dropdown {
+/* #profile-dropdown {
   transform: scaleY(0);
   transform-origin: top;
   transition: all 0.3s ease-in-out;
   visibility: hidden; /* Hide initially */
-}
+/* } */ 
 
-#profile-dropdown.show {
+/* #profile-dropdown.show {
   transform: scaleY(1);
   visibility: visible; /* Show on trigger */
-}
+/* } */
 
-#profile-button:focus + #profile-dropdown,
+/* #profile-button:focus + #profile-dropdown,
 #profile-dropdown:hover {
   display: block;
-}
+} */
 
 /* Toast Notifications */
 .toast-notification {
