@@ -1,7 +1,7 @@
 const express = require('express');
 const router = express.Router();
 const { Blog, Comment, User } = require('../models');
-const checkBlogId = require('./../utils/checkBlogId');
+const checkBlogId = require('./../utils/checkBlogId is good');
 const checkLoggedIn = require('./../utils/checkLoggedIn');
 
 // const sequelize = require('./../config/connection');
