@@ -17,7 +17,7 @@ const bcrypt = require('bcrypt');
 router.post('/login', async (req, res) => {
     try {
         console.log (`\x1b[35m POST - User Routes: '/:login'\x1b[0m`)
-        console.log (`\x1b[35m POST - ONE Session Record\x1b[0m`)
+        console.log (`\x1b[35m POST - Create Session\x1b[0m`)
         
         // Find user record by email
         const userData = await User.findOne({ where: {
@@ -41,37 +41,31 @@ router.post('/login', async (req, res) => {
         }
 
         // Create the session - 
-        // Save these values into the session for later retrieval by the server
+        // Save these values into the session for later retrieval by the server      
         await req.session.save( () => {
             req.session.logged_in = true; // Logged in flag
             req.session.user_id = userData.user_id;
             req.session.name = userData.name;
             req.session.email = userData.email
-            req.session.test = "bananas"; // Test value stored against user session
+            if (req.session.user_id ===1) {         // Is this user_id? if so then grant admin privileges
+                req.session.admin = true
+            } else {
+                req.session.admin = false
+            }            
             res.json({ user: userData, message: 'You are now logged in!' });
         });
-
-        console.log (`\x1b[35m User ID: ${userData.user_id}\x1b[0m`)
-        console.log (`\x1b[35m Name: ${userData.name}\x1b[0m`)
-        console.log (`\x1b[35m Email: ${userData.email}\x1b[0m`)
+        
+        console.log (`\x1b[35m User ID: ${req.session.user_id}\x1b[0m`)
+        console.log (`\x1b[35m Name: ${req.session.name}\x1b[0m`)
+        console.log (`\x1b[35m Email: ${req.session.email}\x1b[0m`)
         console.log (`\x1b[35m Logged in: ${req.session.logged_in}\x1b[0m`)
-        console.log (`\x1b[35m Test: ${req.session.test}\x1b[0m`)
-
+        console.log (`\x1b[35m Admin: ${req.session.admin}\x1b[0m`)
         console.log (`\x1b[31m userData \x1b[0m`)
         console.log(userData)
         console.log (`\x1b[31m req.session \x1b[0m`)
         console.log(req.session) //ACCESS SESSION DETAILS BY USING THIS VARIABLE
-        console.log (`\x1b[31m req.test \x1b[0m`)
-        console.log (`\x1b[35m Test: ${req.session.test}\x1b[0m`)
-        //             res.json({ message: 'You are now logged in!' })  
-
-    //     res.render('homepage',  {          
-    //         logged_in: req.session.logged_in,            
-    //         user_id: req.session.user_id,
-    //         email: req.session.email,
-    //         name: req.session.name
-    // })
-
+        console.log (`\x1b[31m req.Admin \x1b[0m`)
+        console.log (`\x1b[35m Admin: ${req.session.admin}\x1b[0m`)
         
     } catch (err) {
         res.status(400).json(err);
@@ -91,11 +85,11 @@ router.post('/login', async (req, res) => {
 router.post('/signup', async (req, res) => {
     try {
         console.log (`\x1b[35m POST - User Routes: '/:signup'\x1b[0m`)
-        console.log (`\x1b[35m POST - ONE User record\x1b[0m`)
+        console.log (`\x1b[35m POST - Create User and Session\x1b[0m`)
 
-        console.log (`\x1b[35m ${req.body.name}\x1b[0m`)
-        console.log (`\x1b[35m ${req.body.email}\x1b[0m`)
-        console.log (`\x1b[35m ${req.body.password}\x1b[0m`)
+        // console.log (`\x1b[35m ${req.body.name}\x1b[0m`)
+        // console.log (`\x1b[35m ${req.body.email}\x1b[0m`)
+        // console.log (`\x1b[35m ${req.body.password}\x1b[0m`)
 
         // Create a new user
         const userData = await User.create({
@@ -106,28 +100,25 @@ router.post('/signup', async (req, res) => {
 
         // Create the session - 
         // Save these values into the session for later retrieval by the server
-        req.session.save(() => {
+        await req.session.save(() => {
             req.session.logged_in = true; // Logged in flag
             req.session.user_id = userData.user_id;
             req.session.name = userData.name;
-            req.session.email = userData.email;
-            req.session.test = "bananas"; // Test value stored against user session
-
+            req.session.email = userData.email
+            if (req.session.user_id ===1) {         // Is this user_id? if so then grant admin privileges
+                req.session.admin = true
+            } else {
+                req.session.admin = false
+            }     
+            res.status(200).json({ user: userData, message: 'Sign Up successful' });
+        });
         // nodemailer()
 
-        // Send the response back to the client
-        res.status(200)
-        .json({ user: userData, message: 'Signup successful, verification email sent' })
-        .redirect('/')
-        });
-
     } catch (err) {
-        // Ensure this is called only if no response has been sent yet
-        if (!res.headersSent) {
         res.status(400).json(err);
-        }
     }
 });
+
 
 //-----------//
 //- Log Out -//
@@ -135,16 +126,18 @@ router.post('/signup', async (req, res) => {
 
 // Logout route: logs a user out by destroying the session
 router.post('/logout', (req, res) => {
+    console.log (`\x1b[35m POST - User Routes: '/:logout'\x1b[0m`)
+    console.log (`\x1b[35m POST - Destroy Session\x1b[0m`)
     if (req.session.logged_in) {
         req.session.destroy((err) => {
-        if (err) {
-            res.status(500).send('Error logging out');
-        } else {
-            res.clearCookie('connect.sid');
-            res.send('User logged out, session destroyed')
-            // res.redirect('/login')
-        }
-        });
+            if (err) {
+                res.status(500).send('Error logging out');
+            } else {
+                res.clearCookie('connect.sid');
+                res.send('User logged out, session destroyed')
+                // res.redirect('/login')
+            }
+            });
     } else {
         res.status(404).send('Not logged in');
     }

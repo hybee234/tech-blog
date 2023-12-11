@@ -1,0 +1,83 @@
+<main class="bg-sky-700 align-center">
+
+    {{!-------------}}
+    {{!-- Heading --}}
+    {{!-------------}}
+    <h1 class="flex items-center justify-center p-2 text-2xl font-bold text-center md:text-3xl text-orange-400">
+        &nbsp;Sign Up&nbsp;
+    </h1>
+
+    <h2 class="items-center justify-center p-2 text-lg font-bold text-center md:text-2xl text-zinc-900" >
+        <span class="font-bold text-orange-400">
+            <i class="fa-solid fa-computer fa-beat fa-xl"></i> &nbsp; 
+        </span>
+    </h2>
+
+
+    <h3 class="flex items-center justify-center my-4 text-lg font-semibold text-center text-zinc-900">
+        Sign up to see more of this site
+    </h3>
+
+    {{!------------------}}
+    {{!-- Sign Up Form --}}
+    {{!------------------}}
+    <div class="mx-auto bg-sky-700 max-w-2xl">        
+        <div class"justify-center w-full text-center">
+            <form id="sign-up-form" class="w-full p-1 m-auto my-5 bg-sky-300 border-2 rounded-3xl text-center">
+                <h2 class="block uppercase text-lg font-semibold md:text-2xl mt-5 text-center items-center justify-center"> Sign Up </h2>
+                    <div class="w-full px-1 mx-auto my-2 justify-center">
+                        <label class="text-left  block mb-2 text-xs font-bold tracking-wide text-gray-700 uppercase" for="sign-up-name"> Name: </label>
+                        <input class="w-full px-4 py-3 mb-0 leading-tight duration-200 ease-in-out bg-gray-200 border border-gray-200 appearance-none rounded-xl text-zinc-900 hover:border-zinc-500 focus:outline-none focus:border-zinc-500" id="sign-up-name" name="email" type="text" required placeholder="Full name">
+                    </div>    
+                    <div class="w-full px-1 mx-auto my-2 justify-center">
+                        <label class="text-left  block mb-2 text-xs font-bold tracking-wide text-gray-700 uppercase" for="sign-up-email"> Email: </label>
+                        <input class="w-full px-4 py-3 mb-0 leading-tight duration-200 ease-in-out bg-gray-200 border border-gray-200 appearance-none rounded-xl text-zinc-900 hover:border-zinc-500 focus:outline-none focus:border-zinc-500" id="sign-up-email" name="email" type="text" required placeholder="Email...">
+                    </div>
+                    <div class="w-full px-1 mx-auto my-2">
+                        <label class="text-left  block mb-2 text-xs font-bold tracking-wide text-gray-700 uppercase" for="sign-up-password"> Password </label>
+                        <input class="w-full px-4 py-3 mb-0 leading-tight duration-200 ease-in-out bg-gray-200 border border-gray-200 appearance-none rounded-xl text-zinc-900 hover:border-zinc-500 focus:outline-none focus:border-zinc-500" id="sign-up-password" name="password" type="password" required placeholder="Password... "></input>
+                    </div>
+                    <div class="w-full px-1 mx-auto my-2">
+                        <label class="text-left  block mb-2 text-xs font-bold tracking-wide text-gray-700 uppercase" for="sign-up-repeat-password"> Repeat Password </label>
+                        <input class="w-full px-4 py-3 mb-0 leading-tight duration-200 ease-in-out bg-gray-200 border border-gray-200 appearance-none rounded-xl text-zinc-900 hover:border-zinc-500 focus:outline-none focus:border-zinc-500" id="sign-up-repeat-password" name="repeat-password" type="password" required placeholder="Password... "></input>
+                    </div>
+                <button id="create-account-button" class="mx-auto px-4 py-2 my-3 font-bold duration-200 ease-in-out bg-blue-500 text-zinc-100 rounded-xl hover:bg-blue-700" type="submit" value="submit"> Create Account </button>
+            </form>  
+        </div>
+    </div>
+
+    {{!--------------------}}
+    {{!-- Sign Up Button --}}
+    {{!--------------------}}
+    {{!-- <div class="flex justify-center my-4 pb-5"> 
+        <a href="/signup/"><button class="px-6 py-2 my-1 font-bold duration-200 ease-in-out bg-blue-500 text-zinc-100 rounded-xl hover:bg-blue-700">Sign up</button></a>
+    </div> --}}
+
+    {{!-------------------------------------}}
+    {{!-- Special Quick Sign In Up Button --}}
+    {{!-------------------------------------}}
+    
+    <div class="flex justify-center my-4 pb-5"> <!-- Add 'mt-4' class for margin-top -->
+        <button id="log-in-button-HH" class="px-6 py-2 my-1 font-bold duration-200 ease-in-out bg-green-600 text-zinc-100 rounded-xl hover:bg-green-800">Log in (HH 12345678)</button>
+    </div>
+
+    {{!------------------------}}
+    {{!-- Toast Notification --}}
+    {{!------------------------}}
+    <div class="toast-notification" style="display: none;"></div>
+
+</main>
+
+    
+    {{!-- <p> Chii Kawa!</p>
+    <img src="https://i0.wp.com/anitrendz.net/news/wp-content/uploads/2021/10/chiikawaanime-1-e1635418274362.jpg?resize=696%2C392&ssl=1" alt="Chii kawa image"></img>
+    <img src="https://pbs.twimg.com/profile_images/1571353371310804995/5EuNttEl_400x400.png" alt="Chii kawa image"></img> --}}
+
+
+    {{!---------------------}}
+    {{!-- Session Element --}}
+    {{!---------------------}}
+
+<div id="session-details" data-user-id="{{user_id}}" data-name="{{name}}" data-email="{{email}}" data-logged-in="{{logged_in}}" data-admin="{{admin}}" class="text-center"></div>
+
+<script src="/js/signup.js"></script>

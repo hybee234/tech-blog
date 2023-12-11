@@ -13,17 +13,9 @@
         </span>
     </h2>
 
-
     <h3 class="flex items-center justify-center my-4 text-lg font-semibold text-center text-zinc-900">
         Log in or Sign up to see more of this site
     </h3>
-    
-    {{!-- <p> Chii Kawa!</p>
-
-    <img src="https://i0.wp.com/anitrendz.net/news/wp-content/uploads/2021/10/chiikawaanime-1-e1635418274362.jpg?resize=696%2C392&ssl=1" alt="Chii kawa image"></img>
-
-    <img src="https://pbs.twimg.com/profile_images/1571353371310804995/5EuNttEl_400x400.png" alt="Chii kawa image"></img> --}}
-
 
     {{!----------------}}
     {{!-- Login Form --}}
@@ -52,21 +44,37 @@
         </div>
     </div>
 
-
     {{!--------------------}}
     {{!-- Sign Up Button --}}
     {{!--------------------}}
     <div class="flex justify-center my-4 pb-5"> 
-        <button id="sign-up-button" class="px-6 py-2 my-1 font-bold duration-200 ease-in-out bg-blue-500 text-zinc-100 rounded-xl hover:bg-blue-700">Sign up</button>
+        <a href="/signup/"><button class="px-6 py-2 my-1 font-bold duration-200 ease-in-out bg-blue-500 text-zinc-100 rounded-xl hover:bg-blue-700">Sign up</button></a>
     </div>
 
-    {{!-------------------------------------}}
-    {{!-- Special Quick Sign In Up Button --}}
-    {{!-------------------------------------}}
+    {{!------------------------------}}
+    {{!-- Special Quick Sign up Admin --}}
+    {{!------------------------------}}
     
     <div class="flex justify-center my-4 pb-5"> <!-- Add 'mt-4' class for margin-top -->
-        <button id="log-in-button-HH" class="px-6 py-2 my-1 font-bold duration-200 ease-in-out bg-green-600 text-zinc-100 rounded-xl hover:bg-green-800">Log in (HH 12345678)</button>
+        <button id="log-in-button-admin" class="px-6 py-2 my-1 font-bold duration-200 ease-in-out bg-green-600 text-zinc-100 rounded-xl hover:bg-green-800">Log in (admin@email.com 12345678)</button>
     </div>
+
+    {{!------------------------------}}
+    {{!-- Special Quick Sign up HH --}}
+    {{!------------------------------}}
+    
+    <div class="flex justify-center my-4 pb-5"> <!-- Add 'mt-4' class for margin-top -->
+        <button id="log-in-button-HH" class="px-6 py-2 my-1 font-bold duration-200 ease-in-out bg-green-600 text-zinc-100 rounded-xl hover:bg-green-800">Log in (HH@email.com 12345678)</button>
+    </div>
+
+    {{!------------------------------}}
+    {{!-- Special Quick Sign up js --}}
+    {{!------------------------------}}
+    
+    <div class="flex justify-center my-4 pb-5"> <!-- Add 'mt-4' class for margin-top -->
+        <button id="log-in-button-JS" class="px-6 py-2 my-1 font-bold duration-200 ease-in-out bg-green-600 text-zinc-100 rounded-xl hover:bg-green-800">Log in (js@email.com 87654321)</button>
+    </div>
+
 
     {{!---------------------}}
     {{!-- Add Brand Modal --}}
@@ -132,34 +140,9 @@
 </main>
 
     {{!---------------------}}
-    {{!-- Session Details --}}
-    {{!---------------------}}
-
-    <table class="w-1/2 mx-auto text-center table-auto text-yellow-400">
-        <thead>
-                <tr>
-                    <th><u>user_id:</u></th>
-                    <th><u>name:</u></th>
-                    <th><u>email:</u></th>
-                    <th><u>Logged in state:</u></th>
-                    <th><u>Test:</u></th>      
-                </tr>
-        </thead>
-        <tbody>
-                <tr>
-                    <td>{{user_id}} </td>
-                    <td>{{name}} </td>
-                    <td>{{email}} </td>
-                    <td>{{logged_in}} </td>           
-                    <td>{{test}} </td>         
-                </tr>
-        </tbody> 
-    </table>
-
-    {{!---------------------}}
     {{!-- Session Element --}}
     {{!---------------------}}
 
-<div id="session-details" data-user-id="{{user_id}}" data-name="{{name}}" data-email="{{email}}" data-logged-in="{{logged_in}}" data-test="{{test}}" class="text-center"> 😊 </div>
+<div id="session-details" data-user-id="{{user_id}}" data-name="{{name}}" data-email="{{email}}" data-logged-in="{{logged_in}}" data-admin="{{admin}}" class="text-center"></div>
 
 <script src="/js/login.js"></script>
