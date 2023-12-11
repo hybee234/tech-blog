@@ -22,10 +22,14 @@ router.get('/login', async (req, res) => {
 
         // Render the 'my-profile' page, passing the user data
         res.status(200).render('login', {
-            // user,
-            // user_id: req.session.user_id,
-            // logged_in: req.session.logged_in
+            logged_in: req.session.logged_in,            
+            user_id: req.session.user_id,
+            username: req.session.username,
+            name: req.session.name,
+            test: req.session.test,
+            expire: req.session.cookie._expires
         });
+          
 
         // res.status(200.render('homepage', (blogs);
 

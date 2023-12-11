@@ -53,21 +53,22 @@
                     </div>
                 </div>
                 {{#if logged_in}}
-                    <p class="bg-green-700 flex items-center justify-center p-1 text-center text-zinc-100">Log in as: {{name}}</p>
-                    <p class="bg-green-700 flex items-center justify-center p-1 text-center text-zinc-100">Session expires: {{expire}}</p>
+                    <p class="bg-green-700 flex items-center justify-center p-1 text-center text-zinc-100 w-1/2 m-auto">Log in as: {{name}}</p>
+                    <p class="bg-green-700 flex items-center justify-center p-1 text-center text-zinc-100 w-1/2 m-auto">Session expires: {{expire}}</p>
                 {{else}}
-                    <p class="bg-red-500 flex items-center justify-center p-1 text-center text-zinc-100">Not logged in {{name}}</p>
-                    <p class="bg-red-500 flex items-center justify-center p-1 text-center text-zinc-100">Session expires: {{expire}}</p>
+                    <p class="bg-red-500 flex items-center justify-center p-1 text-center text-zinc-100 w-1/2 m-auto">Not logged in {{name}}</p>
+                    <p class="bg-red-500 flex items-center justify-center p-1 text-center text-zinc-100 w-1/2 m-auto">Session expires: {{expire}}</p>
                 {{/if}}
             </div>
         </header>
 
         {{{body}}}
 
-        {{!-- <script src="/js/hamburgerMenu.js"></script> --}}
-        {{#if logged_in}}
-        {{!-- <script src="/js/profileDropdown.js"></script> --}}
-        <script src="/js/main.js"></script>
-        {{/if}}
+{{#if logged_in}}
+    {{!-- Elements are conditionally available that logout.js references --}}
+    <script src="/js/logout.js"></script> 
+{{else}}
+{{/if}}
+
     </body>
 </html>

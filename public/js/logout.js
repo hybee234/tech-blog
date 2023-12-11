@@ -1,9 +1,10 @@
+const logoutButtonEl = document.getElementById('logout-button');
+
 //----------------------------//
 //- Event Listener - Log Out -//
 //----------------------------//
 
 document.addEventListener('DOMContentLoaded', () => {
-    const logoutButtonEl = document.querySelector('#logout-button');
 
     // if (logologoutButtonElutButton) {
         logoutButtonEl.addEventListener('click', async () => {
