@@ -4,15 +4,20 @@
 
 # Huber's Tech Blog
 
-[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg?style=for-the-badge&logo=mit)](https://opensource.org/licenses/MIT)
+[![Node.js Badge](https://img.shields.io/badge/Node.js-393?style=for-the-badge&logo=nodedotjs&logoColor=fff)](https://nodejs.org/en)
+[![MySQL2 Badge](https://img.shields.io/badge/MySQL-005C84?style=for-the-badge&logo=mysql&logoColor=white)](https://www.mysql.com/)
+[![Express Badge](https://img.shields.io/badge/Express-000?style=for-the-badge&logo=express&logoColor=white)](https://expressjs.com/)
+[![Bcrypt Badge](https://img.shields.io/badge/Bcrypt-338?style=for-the-badge&logo=javascript&logoColor=white)](https://www.npmjs.com/package/bcrypt)
+[![Dotenv Badge](https://img.shields.io/badge/Dotenv-000?style=for-the-badge&logo=javascript&logoColor=white)](https://www.npmjs.com/package/dotenv)
+[![Tailwind CSS Badge](https://img.shields.io/badge/Tailwind_CSS-38B2AC?style=for-the-badge&logo=tailwind-css&logoColor=white)](https://tailwindcss.com/)
 
 Challenge 14 - Model View Controller (MVC)
 </div>
 
-
 ## Description
 
-Huber's Tech Blog is an forums that allows users to post their ideas and share views on tech topics.
+Huber's Tech Blog is a website that allows users to publish blog posts and posts comments against blogs to generate discussion.
 
 High level features of the forum are:
 
@@ -20,20 +25,19 @@ High level features of the forum are:
 * Ability for user to post blogs about topics of interest
 * Ability for users to comment on blogs
 
-
-This application has been developed from scratch
+This application is designed following the MVC paradigm without a base code.
 
 ## Table of contents
 
-- <a href="#user-story">User Story</a>
-- <a href="#user-acceptance-criteria">User Acceptance Criteria</a>
+- [User Story](#user-story)
+- [User Acceptance Critiera](#user-acceptance-criteria)
 - [Installation](#installation)
 - [Usage](#usage)
-- <a href="#video-screenshots">Video and Screenshots</a>
+- [Screenshots](#screenshots)
 - [License](#license)
 - [Contributing](#contributing)
 - [Testing](#testing)
-- <a href="#technologies-used">Technologies Used</a>
+- [Technologies Used](#technologies-used)
 - [Questions](#questions)
 
 ## User Story <a ID="user-story"></a>
@@ -108,154 +112,88 @@ THEN I am able to view posts and comments but I am prompted to log in again befo
 ### Additional requirements:
 
 * Application folder structure must follow Model-View-Conrtoller (MVC) paradigm
-* Express-handlebars
-* MySQL2
-* Sequelize
-* Express.js API for controllers
-* Manage environment variables via dotenv package
-* bcrypt package to has passwords
-* Express-session
-* Connect-session-sequelize
+* Use of the following technologies
+    * Express-handlebars
+    * MySQL2
+    * Sequelize
+    * Express.js API for controllers
+    * Manage environment variables via dotenv package
+    * bcrypt package to has passwords
+    * Express-session
+    * Connect-session-sequelize
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
-## Video and Screenshots <a ID = "video-screenshots"></a>
-
-### Video
-
-Watch this video to learn more about the server
-
-<a href="https://drive.google.com/file/d/1h29d87JOBtMskNZp2F4yEOWwkikeE907/view"> Video - "Huber's eCommerce Backend" </a>
+## Screenshots <a ID = "video-screenshots"></a>
 
 ### Screenshots
 
-Screenshot of response to a GET request for all categories
+Screenshot of the Homepage listing all Blogs 
 <div align="center">
 
-![Screenshot of the response to GET all categories](./assets/images/screenshot1.png)
+![Screenshot of the Homepage listing all Blogs ](./public/images/screenshot1.png)
 </div>
 
-Screenshot of response to a GET request for all products
+Screenshot of response the User Dashboard to add, edit, delete their blogs
 <div align="center">
 
-![Screenshot of the response to GET all products](./assets/images/screenshot2.png)
+![Screenshot of the response to GET all products](./public/images/screenshot2.png)
 </div>
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
 ## Installation
 
+Huber's Tech Blog is deployed via Heroku (Utilising JawsDB as Database-as-a-service)
+Installation is not required if accessing via the below link:
+
+<a href="https://huber-tech-blog-ed7fd58460b2.herokuapp.com/"> Huner's Tech Blog (Heroku)" </a>
+
+If you would like to Clonse or fork the repository to contribute then folow the below steps.
+
 1. Clone or fork the repository
 2. Run the below in console install necessary packages
-    * MySQL2 (Major version 3),
-    * Express (Major version 4)
-    * Sequelize (Major version 6)
-    * dotenv (Major version 8) 
+
 ```
 npm i
 ```
 3. After NPM packages have been installed, you'll need to set up your MySQL database for the application to read and write to. Log into MySQL2:
 ```
-myself -u root -p
+mysql -u root -p
 ```
 4. Within mysql2 - create the datbase with the schema provided, run the below command in the root folder (the below is the relative path):
 ```
 source ./db/schema.sql
 ```
-5. Optional - you can seed some data into the database while you are in mysql2 (Skip this step if you are going to use real data)
-```
-source ./db/seeds.sql
-```
-6. Exit MySQL2:
+5. Exit MySQL2:
 ```
 quit
+```
+6. Optional - you can seed some data into the database while you are in mysql2 (Skip this step if you are going to use real data)
+```
+source ./seeds/seed.sql
 ```
 7. You can run start the server once packages have been installed and the database is created. Run the below in the CLI:
 ```
 node server.js
 ```
 
-
-
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
 ## Usage
 
-As this is purely a backend eCommerce server, utilise an API development platform like <a href="https://insomnia.rest/">Insomnia </a> to transmit API requests
-
-Available APIs are as followeds
-
-| Categories                 | API                                      | 
-| -------------------------- | ---------------------------------------- | 
-| GET all Category:          | http://localhost:3001/api/categories/    | 
-| GET one Category by ID:    | http://localhost:3001/api/categories/:id | 
-| POST one Category          | http://localhost:3001/api/categories/    | 
-| PUT one Category by ID:    | http://localhost:3001/api/categories/:id | 
-| DELETE one Category by ID: | http://localhost:3001/api/categories/:id | 
-
-Category POST/PUT sample JSON body:
-```
-{
-"category_name" : "sports"
-}
-```
-
-
-| Products                  |                                        | 
-| ------------------------- | -------------------------------------- | 
-| GET all Product:          | http://localhost:3001/api/products/    | 
-| GET one Product by ID:    | http://localhost:3001/api/products/:id | 
-| POST one Product          | http://localhost:3001/api/products/    |  
-| PUT one Product by ID:    | http://localhost:3001/api/products/:id |
-| DELETE one Product by ID: | http://localhost:3001/api/products/:id |
-
-Product POST/PUT sample JSON body:
- ```
- {
-	"product_name": "basketball",
-	"price" : 30.00,
-	"stock" : 3,
-	"tagIds" : ["1", "2", "3", "4"]
- }
- ```
-
-| Tags                  |                                    |
-| --------------------- | ---------------------------------- |
-| GET all Tag:          | http://localhost:3001/api/tags/    |
-| GET one Tag by ID:    | http://localhost:3001/api/tags/:id |
-| POST one Tag          | http://localhost:3001/api/tags/    |
-| PUT one Tag by ID:    | http://localhost:3001/api/tags/:id |
-| DELETE one Tag by ID: | http://localhost:3001/api/tags/:id |
-
-Tag POST/PUT sample JSON body:
-```
-{
-"tag_name" : "ball"
-}
-```
-
-
-The below SQL can be used to pull table data across the 4 tables used in this server:
-```
---All values from all tables
-SELECT
-p.id as product_id,
-p.product_name,
-p.price,
-p.stock, 
-t.id as tag_id,
-t.tag_name,
-pt.id as producttag_id,
-c.id as category_id,
-c.category_name
-FROM product p
-LEFT JOIN product_tag pt on pt.product_id = p.id
-LEFT JOIN tag t on t.id = pt.tag_id
-LEFT JOIN category c ON p.category_id = c.id;
-```
+* Access the home page of the Techblog to begin.
+* The website allows users view only access to read blogs and comments.
+* On the home page, clicking on a blog's title will open up the blog to show comments
+* Comments can only be added once the user has signed in
+* There is the option to sign up or log in and existing account to enable more features on the website
+* Once signed in, a user can add comments against blogs
+* The user will also have access to their dashboard which lists all blogs written by them.
+* The user has the ability to add more blogs, edit exiting blogs or delete their blogs
+* The website is configured so that sessions last 5 minutes (you will be logged out after this time elapses and will require logging in again)
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
-    
+
 ## License
 
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
@@ -276,54 +214,27 @@ To contribute to this application, please reach out to me via my contact details
 
 Automated Test scripts have not been developed for this application
 
-## Schema and Seeding
-* Validate that running the schema.sql file via mysql2 does not result in errors
-* Validate that running the index.js file within the seed folder does nto result in seed errors
 
-### Categories
-
-* Validate that GET all Category request returns all Categories and associated Products
-* Validate that GET one Category by ID returns a single Category and associated Products if the category ID exists
-* Validate that GET one Category by ID returns an error if the category ID does not exist
-* Validate that POST a Category adds a new record to the category table
-* Validate that PUT (Updating) a Category by ID  is reflected in the database for the same ID
-* Validate that PUT (Updating) a Category by ID  returns an error if the category ID does not exist
-* Validate that DELETING a Category by ID removes the category from the database
-* Validate that DELETING a Category by ID  returns an error if the ID does not exist
-
-### Products
-
-* Validate that GET all Product request returns all Products and associated Category and Tags
-* Validate that GET one Product by ID returns a single Products and associated Category and Tags if the Product ID exists
-* Validate that GET one Product by ID returns an error if the Product ID does not exist
-* Validate that POST a Product adds a new record to the product table and corresponding record entries on the ProducTag table for each tag associated 
-* Validate that PUT (Updating) a Product by ID  is reflected in the database for the same ID (including updating associated tags)
-* Validate that PUT (Updating) a Product by ID  returns an error if the Product ID does not exist
-* Validate that DELETING a Product by ID removes the Product from the database along with tag associations on the ProductTag table
-* Validate that DELETING a Product by ID  returns an error if the ID does not exist
-
-### Tags
-
-* Validate that GET all Tag request returns all Tags and associated Products
-* Validate that GET one Tag by ID returns a single Tag and associated Products if the Tag ID exists
-* Validate that GET one Tag by ID returns an error if the Tag ID does not exist
-* Validate that POST a Tag adds a new record to the product table 
-* Validate that PUT (Updating) a Tag by ID  is reflected in the database for the same ID
-* Validate that PUT (Updating) a Tag by ID  returns an error if the Product ID does not exist
-* Validate that DELETING a Tag by ID removes the Tag from the database along with tag associations on the ProductTag table
-* Validate that DELETING a Tag by ID  returns an error if the ID does not exist
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
 ## Technologies used <a ID="technologies-used"></a>
 
-* Javascript
-* Node.js
-* Node Package Manager (NPM)
-* MySQL2
-* Express
-* Sequelize
-* dotenv
+- **Node.js**: Runtime environment for executing server-side JavaScript code.
+- **Express**: Web application framework for building RESTful APIs.
+- **Express-Handlebars**: Template engine for rendering HTML templates.
+- **Express-Session**: Middleware for managing user sessions.
+- **MySQL2**: MySQL database driver for Node.js.
+- **Sequelize**: Promise-based ORM for interacting with databases.
+- **Bcrypt**: Library for securely hashing passwords.
+- **Dotenv**: Utility for loading environment variables.
+- **Tailwind CSS**: Utility-first CSS framework for styling the application's frontend.
+- **JawsDB**: Providing managed MySQL databases, ideal for scalable web applications.
+- **Heroku**: A cloud platform that offers easy deployment and management of web applications.
+
+**Development Tools**:
+
+- **Nodemon**: Development tool for auto-reloading the server during development.
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 

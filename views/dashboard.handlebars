@@ -35,13 +35,14 @@
                                 <p id="blog-title-{{blog_id}}">{{blog_title}}</p>     
                             </div>
                         </a>                            
-                        <div class="align-text-top">
-                            <button class="update-blog-button transition-transform duration-300 ease-in-out text-xs hover:text-gray-200 hover:scale-125" data-blog-id="{{blog_id}}"><i class="fa-regular fa-pen-to-square fa-lg"></i>&nbsp;Edit</button>
-                        </div>
                     </div>
                     <div class="text-sm w-2/5 text-right">
-                        <p> Posted by {{user.name}} On {{format_date blog_date}}</p>                            
+                        <p> Posted by {{user.name}} On {{format_date blog_date}}</p>     
+                        <div class="align-text-top update-blog-button">
+                            <button class="transition-transform duration-300 ease-in-out hover:text-gray-200 hover:scale-125" data-blog-id="{{blog_id}}"><i class="fa-regular fa-pen-to-square fa-lg py-3"></i>&nbsp;Edit</button>
+                        </div>                       
                     </div>
+
                 </div>
                 {{!-- Blog body --}}
                 <div class="bg-[#dedbd4] p-2 m-2 rounded-b-md">
@@ -93,7 +94,7 @@
     <div id="update-blog-modal" class="modal justify-center w-full text-center">
         <form id="update-blog-form" class="w-full p-1 m-auto my-5 modal-content">
             <span id="update-blog-close-button" class="close">&times;</span>        
-            <h2 class="block uppercase text-lg font-semibold md:text-2xl text-[#323232] bg-[#bab0a1] p-2 m-2 rounded-md"> Update Blog</h2>    
+            <h2 class="block uppercase text-2xl font-semibold md:text-2xl text-[#323232] bg-[#bab0a1] p-2 m-2 rounded-md"> Update Blog</h2>    
             <div class="flex flex-wrap mx-1 my-2">
                 <div class="w-full px-0">
                     <label class="block mb-2 text-xs font-bold tracking-wide text-[#323232] uppercase" for="update-blog-title"> Blog Title </label>

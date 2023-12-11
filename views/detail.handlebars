@@ -12,25 +12,25 @@
     {{!--------------}}
     <div class="mx-auto w-5/6">        
         <div class="m-auto my-5 border-4 border-[#323232] bg-[#dedbd4] rounded-xl max-w-3xl">             
-                {{!-- Blog Title and author --}}
-                <div class="flex bg-[#bab0a1] p-2 m-2 rounded-t-md ">
-                    <div class="w-3/5 text-2xl font-semibold text-[#323232] duration-100 ease-in-out hover:text-gray-200 hover:underline">
-                        <p>{{blog.blog_title}}</p>                           
-                    </div>
-                    <div class="text-sm w-2/5 text-right border-2">
-                        <p> Posted by {{blog.user.name}} On {{format_date blog.blog_date}}</p>                                                    
-                        <p>({{blog.user.email}})</p>
-                    </div>
+            {{!-- Blog Title and author --}}
+            <div class="flex bg-[#bab0a1] p-2 m-2 rounded-t-md ">
+                <div class="w-3/5 text-2xl font-semibold text-[#323232] duration-100 ease-in-out hover:text-gray-200 hover:underline">
+                    <p>{{blog.blog_title}}</p>                           
                 </div>
-                {{!-- Blog body --}}
-                <div class="bg-[#dedbd4] p-2 m-2 rounded-b-md">
-                    <p>{{blog.blog_body}}</p>              
-                </div>                
+                <div class="text-sm w-2/5 text-right">
+                    <p> Posted by {{blog.user.name}} On {{format_date blog.blog_date}}</p>                                                    
+                    <p>{{blog.user.email}}</p>
+                </div>
+            </div>
+            {{!-- Blog body --}}
+            <div class="bg-[#dedbd4] p-2 m-2 rounded-b-md">
+                <p>{{blog.blog_body}}</p>              
+            </div>                
         </div>
 
         {{#each blog.comments as |comment|}}
             <div class="flex m-auto my-5 border-4 border-[#323232] bg-[#dedbd4] rounded-xl max-w-2xl">
-                <div class="bg-[#bab0a1] p-2 m-2 rounded-l-md text-center w-1/4 flex-0">
+                <div class="bg-[#bab0a1] p-2 m-2 rounded-md text-center w-1/4 flex-0">
                     <p>{{user.name}}</p>
                     <p>{{format_date comment_date}}</p>
                 </div>
@@ -52,7 +52,6 @@
         <h3 class="flex items-center justify-center my-4 pb-5 text-lg font-semibold text-center text-orange-400">
             Log in or Sign up post comments
         </h3>
-
     {{/if}}
 
     {{!-----------------------}}
@@ -81,5 +80,4 @@
     {{!---------------------}}
 
     <div id="session-details" data-user-id="{{user_id}}" data-name="{{name}}" data-email="{{email}}" data-logged-in="{{logged_in}}" data-admin="{{admin}}" class="text-center"> </div>
-
     <script src="/js/detail.js"></script>
