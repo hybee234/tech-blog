@@ -9,371 +9,262 @@
 
 /* Base Styles */
 body {
-  font-family: "Poppins", sans-serif;
+    font-family: "Poppins", sans-serif;
 }
 
 * {
-  padding: 0;
-  margin: 0;
-  box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
 }
 
 html {
-  scroll-behavior: smooth;
+    scroll-behavior: smooth;
 }
 
 li {
-  list-style: none;
+    list-style: none;
 }
 
 #background-image {
-  background-size: cover;
-  width: auto;
-  height: auto;
-  max-width: 100%;
-  max-height: 100%;
+    background-size: cover;
+    width: auto;
+    height: auto;
+    max-width: 100%;
+    max-height: 100%;
 }
-
-/* Navbar */
-
-/* Responsive Navigation Styles */
-/* .hamburger {
-  display: none; 
-  cursor: pointer;
-} */
-
-/* .bar {
-  display: block;
-  width: 25px;
-  height: 3px;
-  margin: 5px auto;
-  background-color: #e1dfdf;
-  transition: all 0.3s ease-in-out;
-} */
-
-/* Mobile Navigation Menu */
-/* @media (max-width: 768px) {
-  .hamburger {
-    display: block;
-  } */
-
-  /* Hamburger Icon Animation */
-  /* .hamburger.active .bar:nth-child(2) {
-    opacity: 0;
-  } */
-
-  /* .hamburger.active .bar:nth-child(1) {
-    transform: translateY(8px) rotate(45deg);
-  } */
-
-  /* .hamburger.active .bar:nth-child(3) {
-    transform: translateY(-8px) rotate(-45deg); */
-  /* } */
-
-  /* Mobile Menu */
-  /* .nav-menu {
-    position: fixed;
-    left: -100%;
-    top: 70px;
-    width: 100%;
-    height: 100%;
-    padding-top: 20px;
-    flex-direction: column;
-    background-color: #27272a;
-    text-align: center;
-    transition: left 0.3s;
-    z-index: 10;
-  } */
-
-  /* .nav-item {
-    margin: 10px 0;
-  } */
-
-  /* .nav-menu.active {
-    left: 0;
-  } */
-/* } */
-
-/* Dropdown Styles */
-/* #profile-dropdown {
-  transform: scaleY(0);
-  transform-origin: top;
-  transition: all 0.3s ease-in-out;
-  visibility: hidden; /* Hide initially */
-/* } */ 
-
-/* #profile-dropdown.show {
-  transform: scaleY(1);
-  visibility: visible; /* Show on trigger */
-/* } */
-
-/* #profile-button:focus + #profile-dropdown,
-#profile-dropdown:hover {
-  display: block;
-} */
 
 /* Toast Notifications */
 .toast-notification {
-  position: fixed;
-  bottom: 20px;
-  right: 20px;
-  padding: 10px 20px;
-  background-color: green;
-  color: white;
-  border-radius: 5px;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
-  z-index: 1000;
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    padding: 10px 20px;
+    background-color: green;
+    color: white;
+    border-radius: 5px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+    z-index: 1000;
 }
 
 /* Modal Styles */
 .modal {
-  display: none; /* Hidden by default */
-  position: fixed; /* Stay in place */
-  z-index: 1000; /* Sit on top */
-  left: 0;
-  top: 0;
-  width: 100%;
-  height: 100%;
-  overflow-y: hidden; /* Prevent scrolling */
-  background-color: rgba(0, 0, 0, 0.4); /* Black w/ opacity */
-  backdrop-filter: blur(10%); /* Apply blur to background */
+    display: none; 
+    position: fixed; 
+    z-index: 1000; /* Sit on top */
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    /*overflow-y: hidden;  Prevent scrolling */
+    background-color: rgba(0, 0, 0, 0.4); /* Black w/ opacity */
+    backdrop-filter: blur(30%); /* Apply blur to background */
 }
 
 .modal-content {
-  background-color: #dedbd4;
-  padding: 20px;
-  border: 4px solid #323232;
-  border-radius: 0.75rem;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2), 0 6px 20px rgba(0, 0, 0, 0.19);
-  position: absolute; /* Positioned absolutely within .modal */
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%); /* Center the modal */
-  width: 90%; /* Full width on mobile */
-  max-width: 500px; /* Maximum width for larger screens */
+    background-color: #dedbd4;
+    padding: 20px;
+    border: 4px solid #323232;
+    border-radius: 0.75rem;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2), 0 6px 20px rgba(0, 0, 0, 0.19);
+    position: absolute; /* Positioned absolutely within .modal */
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%); /* Center the modal */
+    width: 90%; /* Full width on mobile */
+    max-width: 500px; /* Maximum width for larger screens */
 }
 
 /* Close Button Style */
 .close {
-  color: #aaa;
-  position: absolute;
-  top: 10px;
-  right: 10px;
-  font-size: 28px;
-  font-weight: bold;
+    color: #aaa;
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    font-size: 28px;
+    font-weight: bold;
 }
 
 .close:hover,
 .close:focus {
-  color: black;
-  cursor: pointer;
+    color: black;
+    cursor: pointer;
 }
 
 /* Button Styles */
 .btn-danger,
 .btn-secondary {
-  padding: 10px 15px;
-  cursor: pointer;
-  font-weight: bold;
-  border: none;
+    padding: 10px 15px;
+    cursor: pointer;
+    font-weight: bold;
+    border: none;
 }
 
 .btn-danger {
-  background-color: #d9534f;
-  color: white;
+    background-color: #d9534f;
+    color: white;
 }
 
 .btn-danger:hover {
-  background-color: #c9302c;
+    background-color: #c9302c;
 }
 
 .btn-secondary {
-  background-color: #f0ad4e;
-  color: white;
+    background-color: #f0ad4e;
+    color: white;
 }
 
 .btn-secondary:hover {
-  background-color: #ec971f;
+    background-color: #ec971f;
 }
 
 /* Media Queries */
 @media (max-width: 375px) {
-  .modal-content {
-    height: 50%;
-    flex-direction: column;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-  }
+    .modal-content {
+        height: 75%;
+        flex-direction: column;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
 }
 
 @media (min-width: 768px) {
-  .modal-content {
-    width: 70%;
-    margin-top: 10%;
-  }
+    .modal-content {
+        width: 75% ;
+        margin-top: 10%;
+    }
 }
 
 @media (min-width: 1024px) {
-  .modal-content {
-    width: 50%;
-    margin-top: 10%;
-  }
+    .modal-content {
+        width: 50%;
+        margin-top: 10%;
+    }
 }
 
 @media (min-width: 1280px) {
-  .modal-content {
-    width: 30%;
-    margin-top: 10%;
-  }
+    .modal-content {
+        width: 30%;
+        margin-top: 10%;
+    }
 }
 
-/* Common input styling */
-.common-input {
-  width: 100%;
-  padding: 8px 12px;
-  transition: border-color 0.3s ease-in-out;
-  border: 1px solid transparent;
-  border-radius: 8px;
-  outline: none;
-}
-
-.common-input:hover,
-.common-input:focus {
-  border-color: #cbd5e1;
-}
 
 /* Custom styles for mobile devices */
 @media only screen and (max-width: 375px) {
-  .modal-content,
-  #table-container div,
-  #add-wine-modal,
-  #update-wine-modal {
-    width: 100%; /* Full width on small screens */
-    margin: 0;
-    padding: 0;
-  }
-  .modal {
-    padding: 0 5px; /* Adjust padding for small screens */
-  }
-  table {
+    .modal-content,
+    #table-container div,
+    #add-wine-modal,
+    #update-wine-modal {
+        width: 90%; 
+        margin: 0;
+        padding: 0;
+    }
+    .modal {
+        padding: 0 5px; /* Adjust padding for small screens */
+    }
+
+/* Common input styling */
+/* .common-input {
+    width: 100%;
+    padding: 8px 12px;
+    transition: border-color 0.3s ease-in-out;
+    border: 1px solid transparent;
+    border-radius: 8px;
+    outline: none;
+} */
+
+/* .common-input:hover,
+.common-input:focus {
+    border-color: #cbd5e1;
+} */
+
+    table {
     font-size: 0.75rem; /* Smaller font size for tables on small screens */
-  }
-  th,
-  td {
-    padding: 0.25rem; /* Reduce cell padding */
-    font-size: 12px; /* Adjust font size for better fit */
-  }
-  .button {
-    padding: 0.5rem 1rem; /* Adjust button padding */
-  }
-  .table-auto {
-    white-space: nowrap; /* Prevent text from wrapping to the next line */
-  }
-  th > a,
-  td {
-    display: block; /* Block display for links and table cells for better control */
-    overflow: hidden; /* Hide overflowed content */
-    text-overflow: ellipsis; /* Add ellipsis for overflowed content */
-  }
+    }
+    th,
+    td {
+        padding: 0.25rem; /* Reduce cell padding */
+        font-size: 12px; /* Adjust font size for better fit */
+    }
+    .button {
+        padding: 0.5rem 1rem; /* Adjust button padding */
+    }
+    .table-auto {
+        white-space: nowrap; /* Prevent text from wrapping to the next line */
+    }
+    th > a,
+    td {
+        display: block; /* Block display for links and table cells for better control */
+        overflow: hidden; /* Hide overflowed content */
+        text-overflow: ellipsis; /* Add ellipsis for overflowed content */
+    }
 
-  .update-wine-button {
-    top: 50%;
-    transform: translateY(-50%); /* Center the button vertically */
-  }
+    /* Centering table headers */
+    table thead th {
+        text-align: center;
+    }
 
-  .add-vintage-button {
-    margin: 10px auto; /* Margin top and bottom, auto on the sides to center */
-    display: flex; /* This will take the full width available */
-    justify-content: center;
-    align-items: center;
-  }
+    /* Ensure the table layout is not disturbed by the absolutely positioned button */
+    table {
+        margin-top: 50px; /* Give enough space for the edit button at the top */
+    }
 
-  /* Centering table headers */
-  table thead th {
-    text-align: center;
-  }
-
-  /* Ensure the table layout is not disturbed by the absolutely positioned button */
-  table {
-    margin-top: 50px; /* Give enough space for the edit button at the top */
-  }
-
-  /* Styles for cells in tbody to ensure they are center-aligned */
-  table tbody th,
-  table tbody td {
+    /* Styles for cells in tbody to ensure they are center-aligned */
+    table tbody th,
+    table tbody td {
     text-align: center;
     display: table-cell; /* Display as table-cell for proper centering */
-  }
+    }
 }
 
 /* Styles for medium-sized mobile devices */
 @media only screen and (min-width: 376px) and (max-width: 768px) {
-  .modal-content,
-  #table-container div {
-    width: 95%; /* Slightly narrower on medium screens */
-    margin: 0 auto; /* Center modal and divs */
-  }
-  table {
-    font-size: 0.875rem; /* Increase font size for tables on medium screens */
-  }
-  th,
-  td {
-    padding: 0.5rem; /* Increase cell padding */
-  }
-  .button {
-    padding: 0.75rem 1.5rem; /* Increase button padding */
-  }
+    .modal-content,
+    #table-container div {
+        width: 95%; /* Slightly narrower on medium screens */
+        margin: 0 auto; /* Center modal and divs */
+    }
+    table {
+        font-size: 0.875rem; /* Increase font size for tables on medium screens */
+    }
+    th,
+    td {
+        padding: 0.5rem; /* Increase cell padding */
+    }
+    .button {
+        padding: 0.75rem 1.5rem; /* Increase button padding */
+    }
 
-  /* Global adjustments to ensure content fits well */
-  .table-auto th,
-  .table-auto td {
-    text-align: center; /* Center the text */
-  }
+    /* Global adjustments to ensure content fits well */
+    .table-auto th,
+    .table-auto td {
+        text-align: center; /* Center the text */
+    }
 
-  /* This style ensures that the 'Drink By' column has enough space */
-  th:nth-child(3),
-  td:nth-child(3) {
-    min-width: 80px; /* Adjust the minimum width as needed for the 'Drink By' column */
-  }
+    /* This style ensures that the 'Drink By' column has enough space */
+    th:nth-child(3),
+    td:nth-child(3) {
+        min-width: 80px; /* Adjust the minimum width as needed for the 'Drink By' column */
+    }
 
-  .wine-name-container {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    position: relative; /* To position the edit button absolutely inside this container */
-    padding-right: 30px; /* Give space for the edit button */
-  }
+    
 
-  .update-wine-button {
-    top: 50%;
-    transform: translateY(-50%); /* Center the button vertically */
-  }
+    /* Centering table headers */
+    table thead th {
+        text-align: center;
+    }
 
-  .wine-name {
-    text-align: center;
-    flex-grow: 1; /* Ensures the wine name can grow to use available space */
-  }
+    /* Ensure the table layout is not disturbed by the absolutely positioned button */
+    table {
+        margin-top: 50px; /* Give enough space for the edit button at the top */
+    }
 
-  .add-vintage-button {
-    margin: 10px auto; /* Margin top and bottom, auto on the sides to center */
-    display: block; /* This will take the full width available */
-  }
-
-  /* Centering table headers */
-  table thead th {
-    text-align: center;
-  }
-
-  /* Ensure the table layout is not disturbed by the absolutely positioned button */
-  table {
-    margin-top: 50px; /* Give enough space for the edit button at the top */
-  }
-
-  /* Styles for cells in tbody to ensure they are center-aligned */
-  table tbody th,
-  table tbody td {
-    text-align: center;
-    display: table-cell; /* Display as table-cell for proper centering */
-  }
+    /* Styles for cells in tbody to ensure they are center-aligned */
+    table tbody th,
+    table tbody td {
+        text-align: center;
+        display: table-cell; /* Display as table-cell for proper centering */
+    }
 }
