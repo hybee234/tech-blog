@@ -110,7 +110,7 @@ router.get('/', async (req, res) => {
 //--------------------------//
 
 //Pull Blog + User, Comment + User
-router.get('/detail/:blog_id', checkLoggedIn, checkBlogId, async (req, res) => {
+router.get('/detail/:blog_id', checkBlogId, async (req, res) => {
     try {
         // GET One Blog, associated comments and user details for both
         console.log (`\x1b[34m GET - homeRoutes: '/:blog_id'\x1b[0m`)  // Blue

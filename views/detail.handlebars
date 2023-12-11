@@ -55,10 +55,16 @@
     {{!------------------------}}
     {{!-- Add Comment Button --}}
     {{!------------------------}}
+    {{#if logged_in}}
+        <div class="flex justify-center my-4 pb-5"> 
+            <button id="add-comment-open-modal" class="px-6 py-2 my-1 font-bold duration-200 ease-in-out bg-blue-500 text-zinc-100 rounded-xl hover:bg-blue-700">Add Comment</button>
+        </div>
+    {{else}}
+        <h3 class="flex items-center justify-center my-4 pb-5 text-lg font-semibold text-center text-orange-400">
+            Log in or Sign up post comments
+        </h3>
 
-    <div class="flex justify-center my-4 pb-5"> 
-        <button id="add-comment-open-modal" class="px-6 py-2 my-1 font-bold duration-200 ease-in-out bg-blue-500 text-zinc-100 rounded-xl hover:bg-blue-700">Add Comment</button>
-    </div>
+    {{/if}}
 
     {{!-----------------------}}
     {{!-- Add Comment Modal --}}
