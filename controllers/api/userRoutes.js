@@ -131,7 +131,7 @@ router.post('/logout', (req, res) => {
     if (req.session.logged_in) {
         req.session.destroy((err) => {
             if (err) {
-                res.status(500).send('Error logging out');
+                res.status(500).send('Error logging out'); // e.g. session expires before logging out
             } else {
                 res.clearCookie('connect.sid');
                 res.send('User logged out, session destroyed')

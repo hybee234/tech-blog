@@ -1,43 +1,33 @@
-<main class="bg-sky-700 align-center">
+<main class="align-center">
 
     {{!-------------}}
     {{!-- Heading --}}
     {{!-------------}}
-    <h1 class="flex items-center justify-center p-2 text-2xl font-bold text-center md:text-3xl text-orange-400">
+    <h1 class="flex items-center justify-center p-2 text-3xl font-semibold text-center md:text-4xl text-[#323232]">
         &nbsp;Log in&nbsp;
     </h1>
-
-    {{!-- <h2 class="items-center justify-center p-2 text-lg font-bold text-center md:text-2xl text-zinc-900" >
-        <span class="font-bold text-orange-400">
-            <i class="fa-solid fa-computer fa-beat fa-xl"></i> &nbsp; 
-        </span>
-    </h2>
-
-    <h3 class="flex items-center justify-center my-4 text-lg font-semibold text-center text-zinc-900">
-        Log in or Sign up to see more of this site
-    </h3> --}}
 
     {{!----------------}}
     {{!-- Login Form --}}
     {{!----------------}}
-    <div class="mx-auto bg-sky-700 w-11/12 max-w-2xl">        
+    <div class="mx-auto w-11/12 max-w-2xl">        
         <div class"justify-center text-center">
-            <form id="login-form" class="w-full p-1 m-auto my-5 bg-sky-300 border-2 rounded-3xl text-center">
-                <h2 class="block uppercase text-lg font-semibold md:text-2xl mt-5 text-center items-center justify-center"> Log In </h2>    
+            <form id="login-form" class="m-auto my-5 border-4 border-[#323232] bg-[#dedbd4] rounded-xl max-w-3xl text-center">
+                <h2 class="w-11/12 mx-auto block uppercase text-lg font-semibold md:text-2xl text-[#323232] bg-[#bab0a1] p-2 m-5 rounded-md"> Log In </h2>    
                 {{!-- <div class="flex flex-wrap "> --}}
                     <div class="w-full px-1 mx-auto my-2 justify-center">
-                        <label class="text-left  block mb-2 text-xs font-bold tracking-wide text-gray-700 uppercase" for="login-email"> Email: </label>
-                        <input class="w-full px-4 py-3 mb-0 leading-tight duration-200 ease-in-out bg-gray-200 border border-gray-200 appearance-none rounded-xl text-zinc-900 hover:border-zinc-500 focus:outline-none focus:border-zinc-500" id="login-email" name="email" type="text" required placeholder="Email...">
+                        <label class="w-5/6 mx-auto text-left block mb-2 text-xs font-bold tracking-wide text-[#323232] uppercase" for="login-email"> Email: </label>
+                        <input class="w-11/12 px-4 py-3 mb-0 leading-tight duration-200 ease-in-out bg-gray-200 border border-gray-200 appearance-none rounded-xl text-zinc-900 hover:border-zinc-500 focus:outline-none focus:border-zinc-500" id="login-email" name="email" type="text" required placeholder="Email...">
                     </div>
                 {{!-- </div> --}}
                 {{!-- <div class="flex flex-wrap mx-1 my-2"> --}}
                     <div class="w-full px-1 mx-auto my-2">
-                        <label class="text-left  block mb-2 text-xs font-bold tracking-wide text-gray-700 uppercase" for="login-password"> Password </label>
-                        <input class="w-full px-4 py-3 mb-0 leading-tight duration-200 ease-in-out bg-gray-200 border border-gray-200 appearance-none rounded-xl text-zinc-900 hover:border-zinc-500 focus:outline-none focus:border-zinc-500" id="login-password" name="password" type="password" required placeholder="Password... "></input>
+                        <label class="w-5/6 mx-auto text-left block mb-2 text-xs font-bold tracking-wide text-[#323232] uppercase" for="login-password"> Password </label>
+                        <input class="w-11/12 px-4 py-3 mb-0 leading-tight duration-200 ease-in-out bg-gray-200 border border-gray-200 appearance-none rounded-xl text-zinc-900 hover:border-zinc-500 focus:outline-none focus:border-zinc-500" id="login-password" name="password" type="password" required placeholder="Password... "></input>
                     </div>
                 {{!-- </div>               --}}
                 {{!-- submit button --}}
-                <button id="login-login-button" class="mx-auto px-4 py-2 my-3 font-bold duration-200 ease-in-out bg-blue-500 text-zinc-100 rounded-xl hover:bg-blue-700" type="submit" value="submit"><i class="fa-solid fa-arrow-right-to-bracket"></i> &nbsp;Log In</button>
+                <button id="login-login-button" class="px-6 py-2 my-5 font-bold duration-200 ease-in-out bg-[#323232] text-zinc-100 rounded-xl hover:bg-[#787878]" type="submit" value="submit"><i class="fa-solid fa-arrow-right-to-bracket"></i> &nbsp;Log In</button>
                 {{!-- cancel button --}}
                 
             </form>  
@@ -47,8 +37,9 @@
     {{!--------------------}}
     {{!-- Sign Up Button --}}
     {{!--------------------}}
-    <div class="flex justify-center my-4 pb-5"> 
-        <a href="/signup/"><button class="px-6 py-2 my-1 font-bold duration-200 ease-in-out bg-blue-500 text-zinc-100 rounded-xl hover:bg-blue-700"><i class="fa-solid fa-user-plus"></i> &nbsp; Sign Up</button></a>
+    <div class="text-center">Don't have an account?</div>
+    <div class="flex justify-center my-0 pb-5">         
+        <a href="/signup/"><button class="px-6 py-2 my-1 font-bold duration-200 ease-in-out bg-[#323232] text-zinc-100 rounded-xl hover:bg-[#787878]"><i class="fa-solid fa-user-plus"></i> &nbsp; Sign Up</button></a>
     </div>
 
     {{!---------------------------------}}
@@ -74,69 +65,6 @@
     <div class="flex justify-center my-4 pb-5"> <!-- Add 'mt-4' class for margin-top -->
         <button id="log-in-button-JS" class="px-6 py-2 my-1 font-bold duration-200 ease-in-out bg-green-600 text-zinc-100 rounded-xl hover:bg-green-800"><i class="fa-solid fa-arrow-right-to-bracket"></i> &nbsp; Log in (js@email.com 87654321)</button>
     </div>
-
-
-    {{!---------------------}}
-    {{!-- Add Brand Modal --}}
-    {{!---------------------}}
-
-    {{!-- <div id="add-brand-modal" class="modal justify-center w-full text-center">
-        <form id="add-brand-form" class="w-full p-1 m-auto my-5 bg-orange-300 border-2 rounded-3xl modal-content">
-            <span id="add-brand-close-button" class="close">&times;</span>    
-            <h2 class="block uppercase text-lg font-semibold md:text-2xl text-[#722F37] mt-5"> Add a Brand to your vault </h2>    
-            <div class="flex flex-wrap mx-1 my-2">
-                <div class="w-full px-0">
-                    <label class="block mb-2 text-xs font-bold tracking-wide text-gray-700 uppercase" for="new-brand-name"> Brand Name </label>
-                    <input class="w-full px-4 py-3 mb-0 leading-tight duration-200 ease-in-out bg-gray-200 border border-gray-200 appearance-none rounded-xl text-zinc-900 hover:border-zinc-500 focus:outline-none focus:border-zinc-500" id="new-brand-name" name="brandName" type="text" required placeholder="Enter Brand name">
-                </div>
-            </div>            
-            <button id="add-brand-submit-button" class="px-4 py-2 my-3 font-bold duration-200 ease-in-out bg-blue-500 text-zinc-100 rounded-xl hover:bg-blue-700" type="submit" value="submit"> Submit </button>
-            <button id="add-brand-cancel-button" class="px-4 py-2 my-3 font-bold duration-200 ease-in-out bg-blue-500 text-zinc-100 rounded-xl hover:bg-blue-700" type="button" value="cancel"> Cancel </button>
-        </form>
-    </div>  --}}
-
-
-    {{!------------------------}}
-    {{!-- Update Brand Modal --}}
-    {{!------------------------}}
-
-    {{!-- <div id="editModal" class="modal justify-center w-full text-center">
-        <form id="editForm" class="w-full p-1 m-auto my-5 bg-orange-300 border-2 rounded-3xl modal-content">
-            <span id="editModalClose" class="close">&times;</span>        
-            <h2 class="block uppercase text-lg font-semibold md:text-2xl text-[#722F37] mt-5"> Update Brand</h2>    
-            <div class="flex flex-wrap mx-1 my-2">
-                <div class="w-full px-0">
-                    <label class="block mb-2 text-xs font-bold tracking-wide text-gray-700 uppercase" for="editedBrandName"> Wine Name </label>
-                    <input class="w-full px-3 py-2 transition duration-300 ease-in-out border border-transparent rounded-xl hover:border-zinc-500 focus:outline-none focus:border-zinc-500" id="editedBrandName" name="brandName" type="text" required placeholder="Enter Brand name...">
-                </div>
-            </div>
-            <button id="edit-brand-submit-button" class="px-4 py-2 my-3 font-bold duration-200 ease-in-out bg-blue-500 text-zinc-100 rounded-xl hover:bg-blue-700" type="submit" value="submit"> Save Changes </button>
-            <button id="edit-brand-cancel-button" class="px-4 py-2 my-3 font-bold duration-200 ease-in-out bg-blue-500 text-zinc-100 rounded-xl hover:bg-blue-700" type="button" value="cancel"> Cancel </button>
-            <button id="edit-brand-delete-button" class="px-4 py-2 my-3 font-bold duration-200 ease-in-out bg-red-500 text-zinc-100 rounded-xl hover:bg-red-700" type="button" value="button"> Delete Brand </button>
-        </form>
-    </div>  --}}
-
-    {{!----------------------------}}
-    {{!-- Inactivate Brand Modal --}}
-    {{!----------------------------}}
-
-    {{!-- <div id="deactivateModal" class="modal justify-center w-full text-center">
-        <div class="modal-content">
-            <span id="inactivate-brand-close-button" class="close">&times;</span>
-            
-            <h1 class = "text-2xl"> ⚠️🚨 Are you sure?🚨⚠️ </h1>        
-            <h2 id="inactivate-wine-heading" class = "m-2 text-2xl text-[#722F37]">Dyanmically Updated</h2>        
-            <p class="flex items-center justify-center m-2 text-center">Deleting a Brand will also delete its Wines, Vintages and Transactions</p>
-            <p class="flex items-center justify-center m-2 text-center">This cannot be undone</p>
-            
-            <form id="deactivateForm" class="flex flex-col items-center justify-center">        
-                <input type="hidden" id="deactivateBrandId" name="brandId" />
-                <button type="submit" class="my-4 space-y-4 duration-200 ease-in-out btn-danger rounded-xl">Confirm Delete</button>
-                <button type="button" class="my-4 space-y-4 duration-200 ease-in-out btn-secondary rounded-xl" id="inactivate-brand-cancel-button">Cancel</button>
-            </form>
-        </div>
-    </div> --}}
-
 </main>
 
     {{!---------------------}}
