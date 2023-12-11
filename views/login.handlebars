@@ -1,6 +1,5 @@
 <main class="bg-sky-700 align-center">
 
-
     {{!-------------}}
     {{!-- Heading --}}
     {{!-------------}}
@@ -8,16 +7,15 @@
         &nbsp;Log in&nbsp;
     </h1>
 
-    <h2 class="flex items-center justify-center p-2 text-lg font-bold text-center md:text-2xl text-zinc-900" >
+    <h2 class="items-center justify-center p-2 text-lg font-bold text-center md:text-2xl text-zinc-900" >
         <span class="font-bold text-orange-400">
             <i class="fa-solid fa-computer fa-beat fa-xl"></i> &nbsp; 
         </span>
-        {{!-- <span class="text-[#722F37]"> </span> --}}
     </h2>
 
 
     <h3 class="flex items-center justify-center my-4 text-lg font-semibold text-center text-zinc-900">
-        &nbsp;Log in or Sign up to see more of this site&nbsp; 
+        Log in or Sign up to see more of this site
     </h3>
     
     {{!-- <p> Chii Kawa!</p>
@@ -27,11 +25,10 @@
     <img src="https://pbs.twimg.com/profile_images/1571353371310804995/5EuNttEl_400x400.png" alt="Chii kawa image"></img> --}}
 
 
-    {{!--------------}}
-    {{!-- One Blog --}}
-    {{!--------------}}
+    {{!----------------}}
+    {{!-- Login Form --}}
+    {{!----------------}}
     <div class="mx-auto bg-sky-700 max-w-2xl">        
-
         <div class"justify-center w-full text-center">
             <form id="login-form" class="w-full p-1 m-auto my-5 bg-sky-300 border-2 rounded-3xl text-center">
                 <h2 class="block uppercase text-lg font-semibold md:text-2xl mt-5 text-center items-center justify-center"> Log In </h2>    
@@ -44,7 +41,7 @@
                 {{!-- <div class="flex flex-wrap mx-1 my-2"> --}}
                     <div class="w-full px-1 mx-auto my-2">
                         <label class="text-left  block mb-2 text-xs font-bold tracking-wide text-gray-700 uppercase" for="login-password"> Password </label>
-                        <input class="w-full px-4 py-3 mb-0 leading-tight duration-200 ease-in-out bg-gray-200 border border-gray-200 appearance-none rounded-xl text-zinc-900 hover:border-zinc-500 focus:outline-none focus:border-zinc-500" id="login-password" name="password" type="text" required placeholder="Password... "></input>
+                        <input class="w-full px-4 py-3 mb-0 leading-tight duration-200 ease-in-out bg-gray-200 border border-gray-200 appearance-none rounded-xl text-zinc-900 hover:border-zinc-500 focus:outline-none focus:border-zinc-500" id="login-password" name="password" type="password" required placeholder="Password... "></input>
                     </div>
                 {{!-- </div>               --}}
                 {{!-- submit button --}}
@@ -53,29 +50,29 @@
                 
             </form>  
         </div>
-
     </div>
 
 
-    {{!----------------}}
-    {{!-- Add Button --}}
-    {{!----------------}}
-    
-    {{!-- Log in or sign up first --}}
+    {{!--------------------}}
+    {{!-- Sign Up Button --}}
+    {{!--------------------}}
+    <div class="flex justify-center my-4 pb-5"> 
+        <button id="sign-up-button" class="px-6 py-2 my-1 font-bold duration-200 ease-in-out bg-blue-500 text-zinc-100 rounded-xl hover:bg-blue-700">Sign up</button>
+    </div>
+
+    {{!-------------------------------------}}
+    {{!-- Special Quick Sign In Up Button --}}
+    {{!-------------------------------------}}
     
     <div class="flex justify-center my-4 pb-5"> <!-- Add 'mt-4' class for margin-top -->
-        <button id="log-in-button" class="px-6 py-2 my-1 font-bold duration-200 ease-in-out bg-blue-500 text-zinc-100 rounded-xl hover:bg-blue-700">Log in (HH 12345678)</button>
-    </div>
-
-  <div class="flex justify-center my-4 pb-5"> <!-- Add 'mt-4' class for margin-top -->
-        <button id="sign-up-button" class="px-6 py-2 my-1 font-bold duration-200 ease-in-out bg-blue-500 text-zinc-100 rounded-xl hover:bg-blue-700">Sign up</button>
+        <button id="log-in-button-HH" class="px-6 py-2 my-1 font-bold duration-200 ease-in-out bg-green-600 text-zinc-100 rounded-xl hover:bg-green-800">Log in (HH 12345678)</button>
     </div>
 
     {{!---------------------}}
     {{!-- Add Brand Modal --}}
     {{!---------------------}}
 
-    <div id="add-brand-modal" class="modal justify-center w-full text-center">
+    {{!-- <div id="add-brand-modal" class="modal justify-center w-full text-center">
         <form id="add-brand-form" class="w-full p-1 m-auto my-5 bg-orange-300 border-2 rounded-3xl modal-content">
             <span id="add-brand-close-button" class="close">&times;</span>    
             <h2 class="block uppercase text-lg font-semibold md:text-2xl text-[#722F37] mt-5"> Add a Brand to your vault </h2>    
@@ -85,19 +82,17 @@
                     <input class="w-full px-4 py-3 mb-0 leading-tight duration-200 ease-in-out bg-gray-200 border border-gray-200 appearance-none rounded-xl text-zinc-900 hover:border-zinc-500 focus:outline-none focus:border-zinc-500" id="new-brand-name" name="brandName" type="text" required placeholder="Enter Brand name">
                 </div>
             </div>            
-            {{!-- submit button --}}
             <button id="add-brand-submit-button" class="px-4 py-2 my-3 font-bold duration-200 ease-in-out bg-blue-500 text-zinc-100 rounded-xl hover:bg-blue-700" type="submit" value="submit"> Submit </button>
-            {{!-- cancel button --}}
             <button id="add-brand-cancel-button" class="px-4 py-2 my-3 font-bold duration-200 ease-in-out bg-blue-500 text-zinc-100 rounded-xl hover:bg-blue-700" type="button" value="cancel"> Cancel </button>
         </form>
-    </div> 
+    </div>  --}}
 
 
     {{!------------------------}}
     {{!-- Update Brand Modal --}}
     {{!------------------------}}
 
-    <div id="editModal" class="modal justify-center w-full text-center">
+    {{!-- <div id="editModal" class="modal justify-center w-full text-center">
         <form id="editForm" class="w-full p-1 m-auto my-5 bg-orange-300 border-2 rounded-3xl modal-content">
             <span id="editModalClose" class="close">&times;</span>        
             <h2 class="block uppercase text-lg font-semibold md:text-2xl text-[#722F37] mt-5"> Update Brand</h2>    
@@ -111,14 +106,13 @@
             <button id="edit-brand-cancel-button" class="px-4 py-2 my-3 font-bold duration-200 ease-in-out bg-blue-500 text-zinc-100 rounded-xl hover:bg-blue-700" type="button" value="cancel"> Cancel </button>
             <button id="edit-brand-delete-button" class="px-4 py-2 my-3 font-bold duration-200 ease-in-out bg-red-500 text-zinc-100 rounded-xl hover:bg-red-700" type="button" value="button"> Delete Brand </button>
         </form>
-    </div> 
+    </div>  --}}
 
     {{!----------------------------}}
     {{!-- Inactivate Brand Modal --}}
     {{!----------------------------}}
 
-    {{!-- Khoi's code start--}}
-    <div id="deactivateModal" class="modal justify-center w-full text-center">
+    {{!-- <div id="deactivateModal" class="modal justify-center w-full text-center">
         <div class="modal-content">
             <span id="inactivate-brand-close-button" class="close">&times;</span>
             
@@ -133,9 +127,39 @@
                 <button type="button" class="my-4 space-y-4 duration-200 ease-in-out btn-secondary rounded-xl" id="inactivate-brand-cancel-button">Cancel</button>
             </form>
         </div>
-    </div>
+    </div> --}}
 
 </main>
 
-    {{! Include the brandInteract.js script }}
-    <script src="/js/login.js"></script>
+    {{!---------------------}}
+    {{!-- Session Details --}}
+    {{!---------------------}}
+
+    <table class="w-1/2 mx-auto text-center table-auto text-yellow-400">
+        <thead>
+                <tr>
+                    <th><u>user_id:</u></th>
+                    <th><u>name:</u></th>
+                    <th><u>username:</u></th>
+                    <th><u>Logged in state:</u></th>
+                    <th><u>Test:</u></th>      
+                </tr>
+        </thead>
+        <tbody>
+                <tr>
+                    <td>{{user_id}} </td>
+                    <td>{{name}} </td>
+                    <td>{{username}} </td>
+                    <td>{{logged_in}} </td>           
+                    <td>{{test}} </td>         
+                </tr>
+        </tbody> 
+    </table>
+
+    {{!---------------------}}
+    {{!-- Session Element --}}
+    {{!---------------------}}
+
+<div id="session-details" data-user-id="{{user_id}}" data-name="{{name}}" data-username="{{username}}" data-logged-in="{{logged_in}}" data-test="{{test}}" class="text-center"> 😊 </div>
+
+<script src="/js/login.js"></script>

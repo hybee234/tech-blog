@@ -20,7 +20,11 @@ router.post('/login', async (req, res) => {
         console.log (`\x1b[35m POST - ONE Session Record\x1b[0m`)
         
         // Find user record by username
-        const userData = await User.findOne({ where: { username: req.body.username } });
+        const userData = await User.findOne({ where: {
+            username: req.body.username,
+            active_ind: 1
+            }
+        });
 
         // If username not found - error
         if (!userData) {
@@ -29,7 +33,7 @@ router.post('/login', async (req, res) => {
         }
 
         // Find and check the Password associated with the User - error if not match
-        const validPassword = await userData.checkPassword(req.body.password);
+        const validPassword = userData.checkPassword(req.body.password);
 
         if (!validPassword) {
             res.status(400).json({ message: 'Incorrect email or password, please try again (Password)' });

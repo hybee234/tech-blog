@@ -15,11 +15,8 @@
     </h2>
 
     {{!-- <p> Chii Kawa!</p>
-
     <img src="https://i0.wp.com/anitrendz.net/news/wp-content/uploads/2021/10/chiikawaanime-1-e1635418274362.jpg?resize=696%2C392&ssl=1" alt="Chii kawa image"></img>
-
     <img src="https://pbs.twimg.com/profile_images/1571353371310804995/5EuNttEl_400x400.png" alt="Chii kawa image"></img> --}}
-
 
     {{!--------------}}
     {{!-- One Blog --}}
@@ -35,8 +32,6 @@
                         <p> Posted by {{blog.user.name}} On {{format_date blog.blog_date}}</p>                                                    
                     </div>
                 </div>
-                {{!-- Partial underline under blog heading --}}
-                {{!-- <div class="border-2 border-t-sky-800 rounded-md border-l-sky-200 border-r-sky-200 border-b-sky-200 w-1/5"></div>     --}}
                 {{!-- Blog body --}}
                 <div class=" bg-sky-200 p-2 m-auto border-8 border-sky-200 rounded-2xl ">
                     <p>{{blog.blog_body}}</p>              
@@ -45,20 +40,11 @@
 
         {{#each blog.comments as |comment|}}
             <div class="bg-sky-200 my-5 border-8 border-sky-300 rounded-2xl w-4/5 m-auto">                             
-                    {{!-- Blog Title and author --}}
+                    {{!-- Comment box --}}
                     <div class=" flex bg-sky-300 p-2 ">
-                        {{!-- <a href="/blog/{{blog_id}}" class="w-3/5"> --}}
-                            <div class="text-2xl font-semibold hover:font-semibold hover:text-orange-600 duration-300 ease-in-out ">
-                                {{!-- <p>{{comment_body}}</p>      --}}
-                            </div>
-                        </a>
-                        {{!-- <div class="text-sm w-2/5 text-right">
-                            <p> Posted by {{user.name}} On {{format_date comment_date}}</p>                            
-                        </div> --}}
+                        <div class="text-2xl font-semibold hover:font-semibold hover:text-orange-600 duration-300 ease-in-out "></div>
                     </div>
-                    {{!-- Partial underline under blog heading --}}
-                    {{!-- <div class="border-2 border-t-sky-800 rounded-md border-l-sky-200 border-r-sky-200 border-b-sky-200 w-1/5"></div>     --}}
-                    {{!-- Blog body --}}
+                    {{!-- Comment and author --}}
                     <div class=" bg-sky-200 p-2 w-full m-auto ">
                         <p> {{comment_body}}</p>              
                     </div>
@@ -70,18 +56,13 @@
         {{/each}} 
     </div>
 
+    {{!------------------------}}
+    {{!-- Add Comment Button --}}
+    {{!------------------------}}
 
-    {{!----------------}}
-    {{!-- Add Button --}}
-    {{!----------------}}
-    
-    {{!-- Log in or sign up first --}}
-    
-    <div class="flex justify-center my-4 pb-5"> <!-- Add 'mt-4' class for margin-top -->
+    <div class="flex justify-center my-4 pb-5"> 
         <button id="add-comment-open-modal" class="px-6 py-2 my-1 font-bold duration-200 ease-in-out bg-blue-500 text-zinc-100 rounded-xl hover:bg-blue-700">Add Comment</button>
     </div>
-
-
 
     {{!-----------------------}}
     {{!-- Add Comment Modal --}}
@@ -109,7 +90,7 @@
     {{!-- Update Brand Modal --}}
     {{!------------------------}}
 
-    <div id="editModal" class="modal justify-center w-full text-center">
+    {{!-- <div id="editModal" class="modal justify-center w-full text-center">
         <form id="editForm" class="w-full p-1 m-auto my-5 bg-orange-300 border-2 rounded-3xl modal-content">
             <span id="editModalClose" class="close">&times;</span>        
             <h2 class="block uppercase text-lg font-semibold md:text-2xl text-[#722F37] mt-5"> Update Brand</h2>    
@@ -123,14 +104,13 @@
             <button id="edit-brand-cancel-button" class="px-4 py-2 my-3 font-bold duration-200 ease-in-out bg-blue-500 text-zinc-100 rounded-xl hover:bg-blue-700" type="button" value="cancel"> Cancel </button>
             <button id="edit-brand-delete-button" class="px-4 py-2 my-3 font-bold duration-200 ease-in-out bg-red-500 text-zinc-100 rounded-xl hover:bg-red-700" type="button" value="button"> Delete Brand </button>
         </form>
-    </div> 
+    </div>  --}}
 
     {{!----------------------------}}
     {{!-- Inactivate Brand Modal --}}
     {{!----------------------------}}
 
-    {{!-- Khoi's code start--}}
-    <div id="deactivateModal" class="modal justify-center w-full text-center">
+    {{!-- <div id="deactivateModal" class="modal justify-center w-full text-center">
         <div class="modal-content">
             <span id="inactivate-brand-close-button" class="close">&times;</span>
             
@@ -145,10 +125,12 @@
                 <button type="button" class="my-4 space-y-4 duration-200 ease-in-out btn-secondary rounded-xl" id="inactivate-brand-cancel-button">Cancel</button>
             </form>
         </div>
-    </div>
-
+    </div> --}}
 </main>
 
+    {{!---------------------}}
+    {{!-- Session Details --}}
+    {{!---------------------}}
 
     <table class="w-1/2 mx-auto text-center table-auto text-yellow-400">
         <thead>
@@ -170,8 +152,11 @@
                 </tr>
         </tbody> 
     </table>
+
+    {{!---------------------}}
+    {{!-- Session Element --}}
+    {{!---------------------}}
+
     <div id="session-details" data-user-id="{{user_id}}" data-name="{{name}}" data-username="{{username}}" data-logged-in="{{logged_in}}" data-test="{{test}}" class="text-center"> 😊 </div>
 
-
-    {{! Include the brandInteract.js script }}
     <script src="/js/detail.js"></script>
