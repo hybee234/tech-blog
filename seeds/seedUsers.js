@@ -3,6 +3,12 @@ const { User } = require('../models');
 
 const userData = [
     {
+        name: 'Admin ',
+        email: 'admin@email.com',
+        password: '$2b$10$x5pxTXvKctGbfXGbmk5nhOWvKGroeSgEh.cvSkpfPpGAfzYnCukhm',  //12345678
+        active_ind: '1'
+    }, 
+    {
         name: 'Huber Heats',
         email: 'hh@email.com',
         password: '$2b$10$x5pxTXvKctGbfXGbmk5nhOWvKGroeSgEh.cvSkpfPpGAfzYnCukhm',  //12345678

@@ -15,31 +15,16 @@ router.get('/login', async (req, res) => {
         // GET User data based on the session's user ID
         console.log (`\x1b[34m GET - homeRoutes: '/login'\x1b[0m`)
         console.log (`\x1b[34m GET - Log in Page\x1b[0m`) 
-        
-        // Serialize the user data
-        // const blog = blogData.get({ plain: true });                      // Method 1
-        // const blogs = blogData.map(blog => blog.get({ plain: true }));   // Method 2
 
-        // Render the 'my-profile' page, passing the user data
+        // Render Login page, passing session data
         res.status(200).render('login', {
             logged_in: req.session.logged_in,            
             user_id: req.session.user_id,
             email: req.session.email,
             name: req.session.name,
-            test: req.session.test,
+            admin: req.session.admin,
             expire: req.session.cookie._expires
         });
-
-        // res.status(200.render('homepage', (blogs);
-
-        // console.log(req.session)
-
-        // res.status(200).render('login', {            
-            // blogs,
-            // logged_in: req.session.logged_in
-        // })
-
-        // res.status(200).json(blogs)
 
     } catch (err) {
         console.error("Error occurred:", err);
@@ -47,12 +32,31 @@ router.get('/login', async (req, res) => {
     }
 });
 
-
-
 //-----------//
 //- Sign up -//
 //-----------//
 
+router.get('/signup', async (req, res) => {
+    try {
+        // GET User data based on the session's user ID
+        console.log (`\x1b[34m GET - homeRoutes: '/signup'\x1b[0m`)
+        console.log (`\x1b[34m GET - Sign Up Page\x1b[0m`) 
+
+        // Render Login page, passing session data
+        res.status(200).render('signup', {
+            logged_in: req.session.logged_in,            
+            user_id: req.session.user_id,
+            email: req.session.email,
+            name: req.session.name,
+            admin: req.session.admin,
+            expire: req.session.cookie._expires
+        });
+
+    } catch (err) {
+        console.error("Error occurred:", err);
+        res.status(500).json({ message: 'Internal Server Error', error: err });
+    }
+});
 
 //------------------------//
 //- Homepage - All Blogs -//
@@ -61,9 +65,9 @@ router.get('/login', async (req, res) => {
 router.get('/', async (req, res) => {
     try {
         // GET All blogs 
-        console.log (`\x1b[34m GET - homeRoutes: '/'\x1b[0m`)
-        console.log (`\x1b[34m GET - Home Page - ALL Blogs\x1b[0m`)
-        console.log (`\x1b[34m Logged in status \x1b[32m${req.session.logged_in}\x1b[0m`) 
+        console.log (`\x1b[34m GET - homeRoutes: '/'\x1b[0m`) // Blue
+        console.log (`\x1b[34m GET - Home Page - ALL Blogs\x1b[0m`) // Blue
+        console.log (`\x1b[34m Logged in status \x1b[32m${req.session.logged_in}\x1b[0m`) // Blue
         const blogData = await Blog.findAll({ where: { active_ind: 1 },
             include: [{model: User, required: false}]       // Still include user details even if they are inactive
         });
@@ -75,8 +79,11 @@ router.get('/', async (req, res) => {
         // Render the 'my-profile' page, passing the user data
         // res.render('homepage', { user, user_id: req.session.user_id, logged_in: req.session.logged_in });
         // res.status(200.render('homepage', (blogs);
+        console.log("HomePage User_id")
+        console.log(req.session.user_id)
 
         console.log(req.session)
+        
 
         // Render Homepage passing through blogs and session details
         res.status(200).render('homepage', {            
@@ -85,7 +92,7 @@ router.get('/', async (req, res) => {
             user_id: req.session.user_id,
             email: req.session.email,
             name: req.session.name,
-            test: req.session.test,
+            admin: req.session.admin,
             expire: req.session.cookie._expires
         })
 
@@ -103,12 +110,12 @@ router.get('/', async (req, res) => {
 //--------------------------//
 
 //Pull Blog + User, Comment + User
-router.get('/detail/:blog_id', checkLoggedIn, checkBlogId, async (req, res) => {
+router.get('/detail/:blog_id', checkBlogId, async (req, res) => {
     try {
         // GET One Blog, associated comments and user details for both
-        console.log (`\x1b[34m GET - homeRoutes: '/:blog_id'\x1b[0m`)
-        console.log (`\x1b[34m GET - ONE Blog Record by Blog ID\x1b[0m`)
-        console.log (`\x1b[34m Logged in status \x1b[32m${req.session.logged_in}\x1b[0m`) 
+        console.log (`\x1b[34m GET - homeRoutes: '/:blog_id'\x1b[0m`)  // Blue
+        console.log (`\x1b[34m GET - ONE Blog Record by Blog ID\x1b[0m`)  // Blue
+        console.log (`\x1b[34m Logged in status \x1b[32m${req.session.logged_in}\x1b[0m`) // Blue
         const getOneBlog = await Blog.findOne({
             where: { active_ind: 1, blog_id: req.params.blog_id},
             include: [
@@ -127,12 +134,12 @@ router.get('/detail/:blog_id', checkLoggedIn, checkBlogId, async (req, res) => {
         // res.render('homepage', { user, user_id: req.session.user_id, logged_in: req.session.logged_in });
 
         // console.log (blog)
-        console.log (req.session)
-        console.log (req.session.logged_in)
-        console.log (req.session.user_id)
-        console.log (req.session.email)
-        console.log (req.session.name)
-        console.log (req.session.test)
+        // console.log (req.session)
+        // console.log (req.session.logged_in)
+        // console.log (req.session.user_id)
+        // console.log (req.session.email)
+        // console.log (req.session.name)
+        // console.log (req.session.admin)
 
         // console.log (req.session.logged_in)
 
@@ -143,7 +150,7 @@ router.get('/detail/:blog_id', checkLoggedIn, checkBlogId, async (req, res) => {
             user_id: req.session.user_id,
             email: req.session.email,
             name: req.session.name,
-            test: req.session.test,
+            admin: req.session.admin,
             expire: req.session.cookie._expires
         })
 
@@ -163,10 +170,10 @@ router.get('/detail/:blog_id', checkLoggedIn, checkBlogId, async (req, res) => {
 router.get('/dashboard', checkLoggedIn, async (req, res) => {
     try {
         // GET All blogs User data based on the session's user ID
-        console.log (`\x1b[34m GET - homeRoutes: '/'\x1b[0m`)
-        console.log (`\x1b[34m GET - Home Page - ALL Blogs\x1b[0m`)
-        console.log (`\x1b[34m Logged in status \x1b[32m${req.session.logged_in}\x1b[0m`) 
-        console.log (`\x1b[34m Logged in iser_id \x1b[32m${req.session.user_id}\x1b[0m`)
+        console.log (`\x1b[34m GET - homeRoutes: '/'\x1b[0m`) // Blue
+        console.log (`\x1b[34m GET - Home Page - ALL Blogs\x1b[0m`) // Blue
+        console.log (`\x1b[34m Logged in status \x1b[32m${req.session.logged_in}\x1b[0m`) // Blue
+        console.log (`\x1b[34m Logged in User_id \x1b[32m${req.session.user_id}\x1b[0m`) // Blue
         const blogData = await Blog.findAll({ where: { active_ind: 1 , user_id: req.session.user_id},
             include: [{model: User, required: false}]       // Still include user details even if they are inactive
         });
@@ -188,7 +195,7 @@ router.get('/dashboard', checkLoggedIn, async (req, res) => {
             user_id: req.session.user_id,
             email: req.session.email,
             name: req.session.name,
-            test: req.session.test,
+            admin: req.session.admin,
             expire: req.session.cookie._expires
         })
 

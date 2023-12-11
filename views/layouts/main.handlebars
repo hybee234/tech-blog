@@ -52,17 +52,54 @@
                         {{/if}}
                     </div>
                 </div>
-                {{#if logged_in}}
-                    <p class="bg-green-700 flex items-center justify-center p-1 text-center text-zinc-100 w-1/2 m-auto">Log in as: {{name}}</p>
-                    <p class="bg-green-700 flex items-center justify-center p-1 text-center text-zinc-100 w-1/2 m-auto">Session expires: {{expire}}</p>
+
+    {{!------------------------------------------------}}
+    {{!-- Session Details - Admin Only (User ID = 1) --}}
+    {{!------------------------------------------------}}
+                {{#if admin}}
+                    {{#if logged_in}}
+                        <p class="bg-green-700 flex items-center justify-center p-1 text-center text-zinc-100 w-1/2 m-auto">Logged in as: {{name}}</p>
+                        <p class="bg-green-700 flex items-center justify-center p-1 text-center text-zinc-100 w-1/2 m-auto">Session expires: {{expire}}</p>
+                    {{else}}
+                        <p class="bg-red-500 flex items-center justify-center p-1 text-center text-zinc-100 w-1/2 m-auto">Not logged in {{name}}</p>
+                        <p class="bg-red-500 flex items-center justify-center p-1 text-center text-zinc-100 w-1/2 m-auto">Session expires: {{expire}}</p>
+                    {{/if}}
                 {{else}}
-                    <p class="bg-red-500 flex items-center justify-center p-1 text-center text-zinc-100 w-1/2 m-auto">Not logged in {{name}}</p>
-                    <p class="bg-red-500 flex items-center justify-center p-1 text-center text-zinc-100 w-1/2 m-auto">Session expires: {{expire}}</p>
                 {{/if}}
             </div>
         </header>
 
         {{{body}}}
+
+
+    {{!----------------------------------}}
+    {{!-- Session Details - Admin Only --}}
+    {{!----------------------------------}}
+
+{{#if admin}}
+    <table class="w-1/2 mx-auto text-center table-auto text-yellow-400">
+        <thead>
+                <tr>
+                    <th><u>user_id:</u></th>
+                    <th><u>name:</u></th>
+                    <th><u>email:</u></th>
+                    <th><u>Logged in state:</u></th>
+                    <th><u>Admin:</u></th>      
+                </tr>
+        </thead>
+        <tbody>
+                <tr>
+                    <td>{{user_id}} </td>
+                    <td>{{name}} </td>
+                    <td>{{email}} </td>
+                    <td>{{logged_in}} </td>           
+                    <td>{{admin}} </td>         
+                </tr>
+        </tbody> 
+    </table>
+{{else}}
+{{/if}}
+
 
 {{#if logged_in}}
     {{!-- Elements are conditionally available that logout.js references --}}

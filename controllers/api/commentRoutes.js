@@ -43,8 +43,8 @@ const checkLoggedIn = require('./../../utils/checkLoggedIn'); // Import the with
 router.post('/:blog_id', checkLoggedIn, checkBlogId, async (req, res) => {
     try {
         // POST new Comment under Blog ID
-        console.log (`\x1b[33m POST - Comment Routes: '/:blog_id'\x1b[0m`)
-        console.log (`\x1b[33m POST - ADD Comment Record under Blog ID \x1b[0m`)
+        console.log (`\x1b[33m POST - Comment Routes: '/:blog_id'\x1b[0m`) //Yellow
+        console.log (`\x1b[33m POST - ADD Comment Record under Blog ID \x1b[0m`) //Yellow
         const postNewComment = await Comment.create(
             {
                 comment_body: req.body.comment_body,
