@@ -10,7 +10,7 @@ const bcrypt = require('bcrypt');
 //-----------------------------//
 
     // {
-    //     "username" : "HL",
+    //     "email" : "HL",
     //     "password" : "12345678"	
     // }
 
@@ -19,16 +19,16 @@ router.post('/login', async (req, res) => {
         console.log (`\x1b[35m POST - User Routes: '/:login'\x1b[0m`)
         console.log (`\x1b[35m POST - ONE Session Record\x1b[0m`)
         
-        // Find user record by username
+        // Find user record by email
         const userData = await User.findOne({ where: {
-            username: req.body.username,
+            email: req.body.email,
             active_ind: 1
             }
         });
 
-        // If username not found - error
+        // If email not found - error
         if (!userData) {
-            res.status(400).json({ message: 'Incorrect email or password, please try again (Username)' });
+            res.status(400).json({ message: 'Incorrect email or password, please try again (Email)' });
             return;
         }
 
@@ -46,14 +46,14 @@ router.post('/login', async (req, res) => {
             req.session.logged_in = true; // Logged in flag
             req.session.user_id = userData.user_id;
             req.session.name = userData.name;
-            req.session.username = userData.username
+            req.session.email = userData.email
             req.session.test = "bananas"; // Test value stored against user session
             res.json({ user: userData, message: 'You are now logged in!' });
         });
 
         console.log (`\x1b[35m User ID: ${userData.user_id}\x1b[0m`)
         console.log (`\x1b[35m Name: ${userData.name}\x1b[0m`)
-        console.log (`\x1b[35m Username: ${userData.username}\x1b[0m`)
+        console.log (`\x1b[35m Email: ${userData.email}\x1b[0m`)
         console.log (`\x1b[35m Logged in: ${req.session.logged_in}\x1b[0m`)
         console.log (`\x1b[35m Test: ${req.session.test}\x1b[0m`)
 
@@ -68,7 +68,7 @@ router.post('/login', async (req, res) => {
     //     res.render('homepage',  {          
     //         logged_in: req.session.logged_in,            
     //         user_id: req.session.user_id,
-    //         username: req.session.username,
+    //         email: req.session.email,
     //         name: req.session.name
     // })
 
@@ -84,7 +84,7 @@ router.post('/login', async (req, res) => {
 
     // {
     // 	"name" : "Adam",
-    // 	"username" : "AH",
+    // 	"email" : "AH@email.com",
     // 	"password" : "12345678"	
     // }
     
@@ -94,13 +94,13 @@ router.post('/signup', async (req, res) => {
         console.log (`\x1b[35m POST - ONE User record\x1b[0m`)
 
         console.log (`\x1b[35m ${req.body.name}\x1b[0m`)
-        console.log (`\x1b[35m ${req.body.username}\x1b[0m`)
+        console.log (`\x1b[35m ${req.body.email}\x1b[0m`)
         console.log (`\x1b[35m ${req.body.password}\x1b[0m`)
 
         // Create a new user
         const userData = await User.create({
         name: req.body.name,
-        username: req.body.username,
+        email: req.body.email,
         password: req.body.password
         });
 
@@ -110,7 +110,7 @@ router.post('/signup', async (req, res) => {
             req.session.logged_in = true; // Logged in flag
             req.session.user_id = userData.user_id;
             req.session.name = userData.name;
-            req.session.username = userData.username;
+            req.session.email = userData.email;
             req.session.test = "bananas"; // Test value stored against user session
 
         // nodemailer()

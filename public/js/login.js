@@ -3,7 +3,7 @@ const logInButtonHHEl = document.getElementById("log-in-button-HH");
 
 
 // const logInButtonEl = document.getElementById("login-login-button");
-const logInUsernameField = document.getElementById("login-username")
+const logInEmailField = document.getElementById("login-email")
 const logInPasswordField = document.getElementById("login-password")
 const logInFormEl = document.getElementById("login-form")
 
@@ -17,7 +17,7 @@ const logInHandler = async (event)=> {
     console.log("logInHandler engaged")
     try{
         let JSONBody = {}    
-        JSONBody.username = logInUsernameField.value
+        JSONBody.email = logInEmailField.value
         JSONBody.password = logInPasswordField.value
 
         //Stringify the Array to prepare for FETCH
@@ -56,7 +56,7 @@ const logInHandlerHH = async (event)=> {
     console.log("logInHandler Quick Log in for HH engaged")
     try{
         let JSONBody = {}    
-        JSONBody.username = "HH"
+        JSONBody.email = "HH"
         JSONBody.password = "12345678"
 
         //Stringify the Array to prepare for FETCH
@@ -95,7 +95,7 @@ const createAccount = async ()=> {
     console.log("createAccount engaged")
     try{
         let JSONBody = {}    
-        JSONBody.username = "AA"
+        JSONBody.email = "AA"
         JSONBody.password = "12345678"
 
         //Stringify the Array to prepare for FETCH
