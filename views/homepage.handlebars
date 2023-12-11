@@ -1,8 +1,8 @@
-<main class="bg-sky-700 align-center">
+<main class="align-center">
     {{!-------------}}
     {{!-- Heading --}}
     {{!-------------}}
-    <h1 class="flex items-center justify-center p-2 text-2xl font-bold text-center md:text-3xl text-orange-400">
+    <h1 class="flex items-center justify-center p-2 text-3xl font-semibold text-center md:text-4xl text-[#323232]">
         {{#if logged_in}}
         &nbsp;Welcome, {{name}}&nbsp;       
         {{else}}
@@ -10,24 +10,18 @@
         {{/if}}
     </h1>
 
-    <h2 class="items-center justify-center p-2 text-lg font-bold text-center md:text-2xl text-zinc-900" >
-        <span class="font-bold text-orange-400">
-            <i class="fa-solid fa-computer fa-beat fa-xl"></i> &nbsp; 
-        </span>
-    </h2>
-
     {{!-----------}}
     {{!-- Blogs --}}
     {{!-----------}}
-    <div class="mx-auto bg-sky-700 w-5/6 pb-1">
+    <div class="mx-auto  w-5/6 pb-1">
 
         {{#each blogs as |blog|}}
-            <div class="bg-sky-200 m-2 my-5 border-8 border-sky-300 rounded-2xl "> 
+            <div class="m-auto my-5 border-4 border-[#323232] bg-[#dedbd4] rounded-xl max-w-3xl"> 
                 
                     {{!-- Blog Title and author --}}
-                    <div class=" flex bg-sky-300 p-2 ">
+                    <div class="flex bg-[#bab0a1] p-2 m-2 rounded-t-md ">
                         <a href="/detail/{{blog_id}}" class="w-3/5">
-                            <div class="text-2xl font-semibold hover:font-semibold hover:text-orange-600 duration-300 ease-in-out ">
+                            <div class="text-2xl font-semibold text-[#323232] duration-100 ease-in-out hover:text-gray-200 hover:underline">
                                 <p>{{blog_title}}</p>     
                             </div>
                         </a>
@@ -38,7 +32,7 @@
                     {{!-- Partial underline under blog heading --}}
                     {{!-- <div class="border-2 border-t-sky-800 rounded-md border-l-sky-200 border-r-sky-200 border-b-sky-200 w-1/5"></div>     --}}
                     {{!-- Blog body --}}
-                    <div class=" bg-sky-200 p-2 w-full m-auto ">
+                    <div class="bg-[#dedbd4] p-2 m-2 rounded-b-md">
                         <p> {{blog_body}}</p>              
                     </div>
                 

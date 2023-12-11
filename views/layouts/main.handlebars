@@ -9,103 +9,94 @@
         <link rel="stylesheet" href="/css/tailwind.css" />
         <link rel="stylesheet" href="/css/style.css" />
     </head>
-    <body class="bg-sky-800">
+    <body class="bg-[#DDD0C8]">
         <!-- Navbar starts here -->
-        <header class="bg-sky-800">
+        <header>
             <div class="px-4 py-6 mx-auto md:px-6 lg:px-8 xl:max-w-7xl 2xl:max-w-[1536px]">
-
                 <!-- Container for navbar content -->
                 <div class="flex flex-wrap md:flex md:flex-wrap items-center justify-between">
-
                     <!-- Logo or brand name -->
                     <div class="w-full text-center md:w-1/2 md:text-left">
-                        <a href="/" class="p-2 text-3xl font-bold text-center text-zinc-100 md:text-left md:text-3xl" >
-                            Huber's 
-                            <span class="text-orange-400">Tech Blog</span>
+                        <a href="/" class="p-2 text-4xl font-semibold text-center text-[#323232] md:text-left md:text-4xl hover:text-gray-400 hover:underline" >
+                            Huber's Tech Blog
                         </a>
                     </div>
-
                     <!-- Navbar links list -->
                     <div class="w-full p-2 justify-center md:w-1/2 md:justify-end flex">
-                        <!-- HomePage link (Blog page) -->
+                        {{!-- <!-- HomePage link (Blog page) -->
                         <li class="nav-item">
-                            <a href="/" class="p-2 text-sm sm:text-lg sm:font-medium duration-200 ease-in-out text-orange-400 hover:text-zinc-100">Homepage</a>
-                        </li>
+                            <a href="/" class="p-2 text-sm sm:text-lg sm:font-medium duration-200 ease-in-out text-[#323232] hover:text-gray-500 hover:underline">Homepage</a>
+                        </li> --}}
 
                         <!-- Dashboard link (User page) -->
-                        <li class="nav-item">
-                            <a href="/dashboard" class="p-2 text-sm sm:text-lg sm:font-medium duration-200 ease-in-out text-orange-400 hover:text-zinc-100">Dashboard</a>
+                        <li>
+                            <a href="/dashboard" class="p-2 text-sm sm:text-lg sm:font-medium duration-200 ease-in-out text-[#323232] hover:text-gray-400 hover:underline"> Dashboard</a>
                         </li>
 
                         <!-- Conditionally rendered links -->
                         {{#if logged_in}}
-
-                        <li class="nav-item"></li>                            
-                            <button id="logout-button" class="p-2 text-sm sm:text-lg sm:font-medium duration-200 ease-in-out text-orange-400 hover:text-zinc-100"><i class="fa-solid fa-right-from-bracket fa-lg hover:animate-pulse"></i></button>
-                        </li>
-
+                            <li class="nav-item"></li>                            
+                                <button id="logout-button" class="p-2 text-sm sm:text-lg sm:font-medium  text-[#323232] hover:text-gray-400"><i class="fa-solid fa-right-from-bracket fa-lg duration-200 ease-in-out hover:animate-pulse hover:scale-150"></i></button>
+                            </li>
                         {{else}}
-                        <!-- Login/Sign Up link -->
-                        <li class="nav-item">
-                            <a href="/login" class="p-2 text-sm sm:text-md sm:font-medium lg:text-lg duration-200 ease-in-out text-orange-400 hover:text-zinc-100">Login/Sign Up</a>
-                        </li>
+                            <!-- Login/Sign Up link -->
+                            <li class="nav-item">
+                                <a href="/login" class="p-2 text-sm sm:text-md sm:font-medium lg:text-lg duration-200 ease-in-out text-[#323232] hover:text-gray-400 hover:underline">Login/Sign Up</a>
+                            </li>
                         {{/if}}
                     </div>
                 </div>
-
-    {{!------------------------------------------------}}
-    {{!-- Session Details - Admin Only (User ID = 1) --}}
-    {{!------------------------------------------------}}
-                {{#if admin}}
-                    {{#if logged_in}}
-                        <p class="bg-green-700 flex items-center justify-center p-1 text-center text-zinc-100 w-1/2 m-auto">Logged in as: {{name}}</p>
-                        <p class="bg-green-700 flex items-center justify-center p-1 text-center text-zinc-100 w-1/2 m-auto">Session expires: {{expire}}</p>
-                    {{else}}
-                        <p class="bg-red-500 flex items-center justify-center p-1 text-center text-zinc-100 w-1/2 m-auto">Not logged in {{name}}</p>
-                        <p class="bg-red-500 flex items-center justify-center p-1 text-center text-zinc-100 w-1/2 m-auto">Session expires: {{expire}}</p>
-                    {{/if}}
-                {{else}}
-                {{/if}}
             </div>
         </header>
 
         {{{body}}}
 
+        {{!------------------------------------------------}}
+        {{!-- Session Details - Admin Only (User ID = 1) --}}
+        {{!------------------------------------------------}}
+        {{#if admin}}
+            {{#if logged_in}}
+                <p class="bg-green-700 flex items-center justify-center p-1 text-center text-zinc-100 w-1/3 m-auto">Logged in as: {{name}}</p>
+                <p class="bg-green-700 flex items-center justify-center p-1 text-center text-zinc-100 w-1/3 m-auto">Session expires: {{expire}}</p>
+            {{else}}
+                <p class="bg-red-500 flex items-center justify-center p-1 text-center text-zinc-100 w-1/3 m-auto">Not logged in {{name}}</p>
+                <p class="bg-red-500 flex items-center justify-center p-1 text-center text-zinc-100 w-1/3 m-auto">Session expires: {{expire}}</p>
+            {{/if}}
+        {{else}}
+        {{/if}}
 
-    {{!----------------------------------}}
-    {{!-- Session Details - Admin Only --}}
-    {{!----------------------------------}}
+        {{!----------------------------------}}
+        {{!-- Session Details - Admin Only --}}
+        {{!----------------------------------}}
+        {{#if admin}}
+            <table class="w-1/4 mx-auto text-center table-auto text-[#323232]">
+                <thead>
+                        <tr>
+                            <th><u>user_id:</u></th>
+                            <th><u>name:</u></th>
+                            <th><u>email:</u></th>
+                            <th><u>Logged in state:</u></th>
+                            <th><u>Admin:</u></th>      
+                        </tr>
+                </thead>
+                <tbody>
+                        <tr>
+                            <td>{{user_id}} </td>
+                            <td>{{name}} </td>
+                            <td>{{email}} </td>
+                            <td>{{logged_in}} </td>           
+                            <td>{{admin}} </td>         
+                        </tr>
+                </tbody> 
+            </table>
+        {{else}}
+        {{/if}}
 
-{{#if admin}}
-    <table class="w-1/2 mx-auto text-center table-auto text-yellow-400">
-        <thead>
-                <tr>
-                    <th><u>user_id:</u></th>
-                    <th><u>name:</u></th>
-                    <th><u>email:</u></th>
-                    <th><u>Logged in state:</u></th>
-                    <th><u>Admin:</u></th>      
-                </tr>
-        </thead>
-        <tbody>
-                <tr>
-                    <td>{{user_id}} </td>
-                    <td>{{name}} </td>
-                    <td>{{email}} </td>
-                    <td>{{logged_in}} </td>           
-                    <td>{{admin}} </td>         
-                </tr>
-        </tbody> 
-    </table>
-{{else}}
-{{/if}}
-
-
-{{#if logged_in}}
-    {{!-- Elements are conditionally available that logout.js references --}}
-    <script src="/js/logout.js"></script> 
-{{else}}
-{{/if}}
+        {{#if logged_in}}
+            {{!-- Elements are conditionally available that logout.js references --}}
+            <script src="/js/logout.js"></script> 
+        {{else}}
+        {{/if}}
 
     </body>
 </html>

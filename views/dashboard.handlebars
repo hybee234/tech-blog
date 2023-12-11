@@ -1,51 +1,52 @@
-<main class="bg-sky-700 align-center">
+<main class="align-center">
+
     {{!-------------}}
     {{!-- Heading --}}
     {{!-------------}}
-    <h1 class="flex items-center justify-center p-2 text-2xl font-bold text-center md:text-3xl text-orange-400">
+        <h1 class="flex items-center justify-center p-2 text-3xl font-semibold text-center md:text-4xl text-[#323232]">
         {{#if logged_in}}
-            &nbsp;Welcome to your dashboard, {{name}}&nbsp;       
+            &nbsp;Welcome to your dashboard&nbsp;       
         {{else}}
             Welcome! 
         {{/if}}
     </h1>
 
-    <h2 class="items-center justify-center p-2 text-lg font-bold text-center md:text-2xl text-zinc-900" >
-        <span class="font-bold text-orange-400">
-            <i class="fa-solid fa-computer fa-beat fa-xl"></i> &nbsp; 
+    <h2 class="items-center justify-center p-2 text-3xl font-semibold text-center md:text-4xl text-[#323232]">
+        <span>
+            {{name}} &nbsp; 
         </span>
     </h2>
     
-    <h3 class="flex items-center justify-center my-4 text-lg font-semibold text-center text-zinc-900">
+    <h3 class="flex items-center justify-center my-4 text-lg font-normal text-center text-[#323232]">
         &nbsp;Add, edit, delete blogs you've authored here &nbsp; 
     </h3>
 
     {{!-----------}}
     {{!-- Blogs --}}
     {{!-----------}}
-    <div class="mx-auto bg-sky-700 w-5/6 pb-1">
+    <div class="mx-auto w-5/6 pb-1">
         {{#each blogs as |blog|}}
-            <div class="bg-sky-200 m-2 my-5 border-8 border-sky-300 rounded-2xl ">                 
-                    {{!-- Blog Title and author --}}
-                    <div class=" flex bg-sky-300 p-2 ">
-                        <div class="flex w-3/5">
-                            <a href="/detail/{{blog_id}}" class="pr-3" >
-                                <div class="text-2xl font-semibold hover:font-semibold hover:text-orange-600 duration-300 ease-in-out ">
-                                    <p id="blog-title-{{blog_id}}">{{blog_title}}</p>     
-                                </div>
-                            </a>
-                            <p>
-                                <button class="update-blog-button transition-transform duration-300 ease-in-out update-wine-button fa-regular fa-pen-to-square fa-lg hover:text-orange-600 hover:scale-125" data-blog-id="{{blog_id}}"></button>
-                            </p>
-                        </div>
-                        <div class="text-sm w-2/5 text-right">
-                            <p> Posted by {{user.name}} On {{format_date blog_date}}</p>                            
+            <div class="m-auto my-5 border-4 border-[#323232] bg-[#dedbd4] rounded-xl max-w-3xl">                        
+                {{!-- Blog Title and author --}}
+                <div class="flex bg-[#bab0a1] p-2 m-2 rounded-t-md ">
+                    <div class="flex w-3/5">
+                        <a href="/detail/{{blog_id}}" class="pr-3" >
+                            <div class="text-2xl font-semibold text-[#323232] duration-100 ease-in-out hover:text-gray-200 hover:underline">
+                                <p id="blog-title-{{blog_id}}">{{blog_title}}</p>     
+                            </div>
+                        </a>                            
+                        <div class="align-text-top">
+                            <button class="update-blog-button transition-transform duration-300 ease-in-out text-xs hover:text-gray-200 hover:scale-125" data-blog-id="{{blog_id}}"><i class="fa-regular fa-pen-to-square fa-lg"></i>&nbsp;Edit</button>
                         </div>
                     </div>
-                    {{!-- Blog body --}}
-                    <div class=" bg-sky-200 p-2 w-full m-auto ">
-                        <p id="blog-body-{{blog_id}}"> {{blog_body}}</p>              
-                    </div>                
+                    <div class="text-sm w-2/5 text-right">
+                        <p> Posted by {{user.name}} On {{format_date blog_date}}</p>                            
+                    </div>
+                </div>
+                {{!-- Blog body --}}
+                <div class="bg-[#dedbd4] p-2 m-2 rounded-b-md">
+                    <p id="blog-body-{{blog_id}}"> {{blog_body}}</p>              
+                </div>                
             </div>
         {{/each}}
     </div>
@@ -55,7 +56,7 @@
     {{!----------------}}
     
     <div class="flex justify-center my-4 pb-5"> <!-- Add 'mt-4' class for margin-top -->
-        <button id="add-blog-open-modal" class="px-6 py-2 my-1 font-bold duration-200 ease-in-out bg-blue-500 text-zinc-100 rounded-xl hover:bg-blue-700">Add Blog</button>
+        <button id="add-blog-open-modal" class="px-6 py-2 my-1 font-bold duration-200 ease-in-out bg-[#323232] text-zinc-100 rounded-xl hover:bg-[#787878]">Add Blog</button>
     </div>
 
     {{!---------------------}}
@@ -63,25 +64,25 @@
     {{!---------------------}}
 
     <div id="add-blog-modal" class="modal justify-center w-full text-center">
-        <form id="add-blog-form" data-user-id="{{user_id}}" class="w-full p-1 m-auto my-5 bg-orange-300 border-2 rounded-3xl modal-content">
+        <form id="add-blog-form" data-user-id="{{user_id}}" class="w-full p-1 m-auto my-5 modal-content">
             <span id="add-blog-close-button" class="close">&times;</span>    
-            <h2 class="block uppercase text-lg font-semibold md:text-2xl text-[#722F37] mt-5"> Add a new Blog </h2>    
+            <h2 class="block uppercase text-lg font-semibold md:text-2xl text-[#323232] bg-[#bab0a1] p-2 m-2 rounded-md"> Add a new Blog </h2>    
             <div class="flex flex-wrap mx-1 my-2">
                 <div class="w-full px-0">
-                    <label class="block mb-2 text-xs font-bold tracking-wide text-gray-700 uppercase" for="add-blog-title"> Blog Title </label>
+                    <label class="block mb-2 text-xs font-bold tracking-wide text-[#323232] uppercase" for="add-blog-title"> Blog Title </label>
                     <input class="w-full px-4 py-3 mb-0 leading-tight duration-200 ease-in-out bg-gray-200 border border-gray-200 appearance-none rounded-xl text-zinc-900 hover:border-zinc-500 focus:outline-none focus:border-zinc-500" id="add-blog-title" name="blogTitle" type="text" required placeholder="Enter a Blog Title">
                 </div>
             </div>
             <div class="flex flex-wrap mx-1 my-2">
                 <div class="w-full px-0">
-                    <label class="block mb-2 text-xs font-bold tracking-wide text-gray-700 uppercase" for="add-blog-body"> Blog Body: </label>
+                    <label class="block mb-2 text-xs font-bold tracking-wide text-[#323232] uppercase" for="add-blog-body"> Blog Body: </label>
                     <textarea class="w-full px-4 py-3 mb-0 leading-tight duration-200 ease-in-out bg-gray-200 border border-gray-200 appearance-none rounded-xl text-zinc-900 hover:border-zinc-500 focus:outline-none focus:border-zinc-500" id="add-blog-body" name="blogBody" type="textarea" required placeholder="Type your blog here ... " rows="10" cols="30"></textarea>
                 </div>
             </div>              
             {{!-- submit button --}}
-            <button id="add-blog-submit-button" class="px-4 py-2 my-3 font-bold duration-200 ease-in-out bg-blue-500 text-zinc-100 rounded-xl hover:bg-blue-700" type="submit" value="submit"> Submit </button>
+            <button id="add-blog-submit-button" class="px-6 py-2 my-1 font-bold duration-200 ease-in-out bg-[#323232] text-zinc-100 rounded-xl hover:bg-[#787878]" type="submit" value="submit"> Submit </button>
             {{!-- cancel button --}}
-            <button id="add-blog-cancel-button" class="px-4 py-2 my-3 font-bold duration-200 ease-in-out bg-blue-500 text-zinc-100 rounded-xl hover:bg-blue-700" type="button" value="cancel"> Cancel </button>
+            <button id="add-blog-cancel-button" class="px-6 py-2 my-1 font-bold duration-200 ease-in-out bg-[#323232] text-zinc-100 rounded-xl hover:bg-[#787878]" type="button" value="cancel"> Cancel </button>
         </form>
     </div> 
 
@@ -90,24 +91,24 @@
     {{!------------------------}}
 
     <div id="update-blog-modal" class="modal justify-center w-full text-center">
-        <form id="update-blog-form" class="w-full p-1 m-auto my-5 bg-orange-300 border-2 rounded-3xl modal-content">
+        <form id="update-blog-form" class="w-full p-1 m-auto my-5 modal-content">
             <span id="update-blog-close-button" class="close">&times;</span>        
-            <h2 class="block uppercase text-lg font-semibold md:text-2xl text-[#722F37] mt-5"> Update Blog</h2>    
+            <h2 class="block uppercase text-lg font-semibold md:text-2xl text-[#323232] bg-[#bab0a1] p-2 m-2 rounded-md"> Update Blog</h2>    
             <div class="flex flex-wrap mx-1 my-2">
                 <div class="w-full px-0">
-                    <label class="block mb-2 text-xs font-bold tracking-wide text-gray-700 uppercase" for="update-blog-title"> Blog Title </label>
+                    <label class="block mb-2 text-xs font-bold tracking-wide text-[#323232] uppercase" for="update-blog-title"> Blog Title </label>
                     <input class="w-full px-4 py-3 mb-0 leading-tight duration-200 ease-in-out bg-gray-200 border border-gray-200 appearance-none rounded-xl text-zinc-900 hover:border-zinc-500 focus:outline-none focus:border-zinc-500" id="update-blog-title" name="blogTitle" type="text" required placeholder="Enter a Blog Title">
                 </div>
             </div>
             <div class="flex flex-wrap mx-1 my-2">
                 <div class="w-full px-0">
-                    <label class="block mb-2 text-xs font-bold tracking-wide text-gray-700 uppercase" for="update-blog-body"> Blog Body: </label>
+                    <label class="block mb-2 text-xs font-bold tracking-wide text-[#323232] uppercase" for="update-blog-body"> Blog Body: </label>
                     <textarea class="w-full px-4 py-3 mb-0 leading-tight duration-200 ease-in-out bg-gray-200 border border-gray-200 appearance-none rounded-xl text-zinc-900 hover:border-zinc-500 focus:outline-none focus:border-zinc-500" id="update-blog-body" name="blogBody" type="textarea" required placeholder="Type your blog here ... " rows="10" cols="30"></textarea>
                 </div>
             </div>       
-            <button id="update-blog-submit-button" class="px-4 py-2 my-3 font-bold duration-200 ease-in-out bg-blue-500 text-zinc-100 rounded-xl hover:bg-blue-700" type="submit" value="submit"> Save Changes </button>
-            <button id="update-blog-cancel-button" class="px-4 py-2 my-3 font-bold duration-200 ease-in-out bg-blue-500 text-zinc-100 rounded-xl hover:bg-blue-700" type="button" value="cancel"> Cancel </button>
-            <button id="update-blog-delete-button" class="px-4 py-2 my-3 font-bold duration-200 ease-in-out bg-red-500 text-zinc-100 rounded-xl hover:bg-red-700" type="button" value="button"> Delete Blog </button>
+            <button id="update-blog-submit-button" class="px-6 py-2 my-1 font-bold duration-200 ease-in-out bg-[#323232] text-zinc-100 rounded-xl hover:bg-[#787878]" type="submit" value="submit"> Save Changes </button>
+            <button id="update-blog-cancel-button" class="px-6 py-2 my-1 font-bold duration-200 ease-in-out bg-[#323232] text-zinc-100 rounded-xl hover:bg-[#787878]" type="button" value="cancel"> Cancel </button>
+            <button id="update-blog-delete-button" class="px-6 py-2 my-1 font-bold duration-200 ease-in-out bg-red-500 text-zinc-100 rounded-xl hover:bg-red-700" type="button" value="button"> Delete Blog </button>
         </form>
     </div> 
 
@@ -120,7 +121,7 @@
             <span id="inactivate-blog-close-button" class="close">&times;</span>
             
             <h1 class = "text-2xl"> ⚠️🚨 Are you sure?🚨⚠️ </h1>        
-            <h2 id="inactivate-blog-heading" class = "m-2 text-2xl text-[#722F37]">Dyanmically Updated</h2>        
+            <h2 id="inactivate-blog-heading" class = "m-2 text-2xl text-[#323232]">Dyanmically Updated</h2>        
             <p class="flex items-center justify-center m-2 text-center">Deleting this blog will also remove its comments</p>
             <p class="flex items-center justify-center m-2 text-center">This cannot be undone</p>
             
@@ -129,7 +130,6 @@
         </div>
     </div>
 </main>
-
 
     {{!---------------------}}
     {{!-- Session Element --}}
