@@ -24,12 +24,11 @@ router.get('/login', async (req, res) => {
         res.status(200).render('login', {
             logged_in: req.session.logged_in,            
             user_id: req.session.user_id,
-            username: req.session.username,
+            email: req.session.email,
             name: req.session.name,
             test: req.session.test,
             expire: req.session.cookie._expires
         });
-          
 
         // res.status(200.render('homepage', (blogs);
 
@@ -84,7 +83,7 @@ router.get('/', async (req, res) => {
             blogs,
             logged_in: req.session.logged_in,            
             user_id: req.session.user_id,
-            username: req.session.username,
+            email: req.session.email,
             name: req.session.name,
             test: req.session.test,
             expire: req.session.cookie._expires
@@ -131,7 +130,7 @@ router.get('/detail/:blog_id', checkLoggedIn, checkBlogId, async (req, res) => {
         console.log (req.session)
         console.log (req.session.logged_in)
         console.log (req.session.user_id)
-        console.log (req.session.username)
+        console.log (req.session.email)
         console.log (req.session.name)
         console.log (req.session.test)
 
@@ -142,7 +141,7 @@ router.get('/detail/:blog_id', checkLoggedIn, checkBlogId, async (req, res) => {
             blog,
             logged_in: req.session.logged_in,            
             user_id: req.session.user_id,
-            username: req.session.username,
+            email: req.session.email,
             name: req.session.name,
             test: req.session.test,
             expire: req.session.cookie._expires
@@ -187,7 +186,7 @@ router.get('/dashboard', checkLoggedIn, async (req, res) => {
             blogs,
             logged_in: req.session.logged_in,            
             user_id: req.session.user_id,
-            username: req.session.username,
+            email: req.session.email,
             name: req.session.name,
             test: req.session.test,
             expire: req.session.cookie._expires
