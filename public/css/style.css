@@ -121,7 +121,7 @@ li {
 /* Media Queries */
 @media (max-width: 375px) {
     .modal-content {
-        height: 75%;
+        height: 50%;
         flex-direction: column;
         display: flex;
         justify-content: center;
@@ -131,7 +131,7 @@ li {
 
 @media (min-width: 768px) {
     .modal-content {
-        width: 75% ;
+        width: 50% ;
         margin-top: 10%;
     }
 }

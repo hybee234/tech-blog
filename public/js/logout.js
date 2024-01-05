@@ -24,6 +24,5 @@ document.addEventListener('DOMContentLoaded', () => {
         } catch (error) {
         console.error('Failed to log out:', error);
         }
-    });
-    // }
+    });    
 });

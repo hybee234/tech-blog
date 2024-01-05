@@ -29,9 +29,9 @@ const inactivateBlogSubmitButtonEl = document.getElementById('inactivate-blog-su
 const inactivateBlogCancelButtonEl = document.getElementById('inactivate-blog-cancel-button')       // Inacitvate Blog Cancel Button
 const inactivateBlogCloseButtonEl = document.getElementById('inactivate-blog-close-button')         // Inacitvate Blog Close Button
 
-//-----------------------------//
+//--------------------------//
 //- POST (Add) Blog Record -//
-//-----------------------------//
+//--------------------------//
 
 const postBlogHandler = async (event, userId) => {
     event.preventDefault();
@@ -65,7 +65,7 @@ const postBlogHandler = async (event, userId) => {
 }
 
 //----------------------------//
-//- PUT (update) Wine Record -//
+//- PUT (update) Blog Record -//
 //----------------------------//
 
 const putBlogHandler = async (event, blogId) => {
@@ -228,7 +228,7 @@ updateBlogCloseBttnEl.addEventListener('click', function () {
 });
 
 //-----------------------------------------------//
-//- Event listener - Update Wine Modal - Submit -//
+//- Event listener - Update Blog Modal - Submit -//
 //-----------------------------------------------//
 updateBlogFormEl.addEventListener('submit', (event) => {
     event.preventDefault();
@@ -243,8 +243,7 @@ updateBlogFormEl.addEventListener('submit', (event) => {
 //- Event listener - Update Blog Modal - Show Delete Modal -//
 //----------------------------------------------------------//
 updateBlogDeleteBttnEl.addEventListener('click', (event) => {
-    event.preventDefault();    
-    
+    event.preventDefault();        
     let blog_id = updateBlogDeleteBttnEl.dataset.blogId
     console.log(blog_id)
     updateBlogModalEl.style.display = 'none';     
